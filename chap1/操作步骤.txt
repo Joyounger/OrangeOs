@@ -1,0 +1,33 @@
+1
+...../chap1 $
+nasm boot.asm -o boot.bin
+ndisasm -o 0x7c00 boot.bin >> disboot.asm
+
+执行bximage，选fd, 1.44，floppy.img
+dd if=boot.bin of=floppy.img bs=512 count=1 conv=notrunc
+bochs
+c
+
+启动bochs时遇到的问题
+1 >>PANIC<< bochsrc:10: vgaromimage directive malformed.
+解决方法：
+vgaromimage: /usr/share/vgabios/vgabios.bin
+改为
+vgaromimage: file=/usr/share/vgabios/vgabios.bin
+
+
+2 >>PANIC<< dlopen failed for module 'x': file not found
+解决方法：
+sudo apt install bochs-x
+
+
+3 执行bochs时出现00000000000e[SPEAK] Failed to open /dev/console: 权限不够
+解决方法：
+执行bochs时加上sudo，对应的输出就变为：
+00000000000i[SPEAK] Using /dev/console for output
+
+
+
+
+调试boot.bin时，出现错误”syntax error at 'dump_cpu'“
+bochs 2.3.5 以上的版本没有dump_cpu了,可以用r，fp，mmx，sse，dreg，sreg，creg命令代替。
