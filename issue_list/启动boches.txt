@@ -1,0 +1,172 @@
+1  >>PANIC<< bochsrc:16: directive 'ips' not understood
+
+ips:1000000
+
+改成
+
+cpu: count=1, ips=1000000
+不知为什么，Bochs说不认识ips:1000000，根据官网上的写法，改成这样就可以了。
+
+
+2 >>PANIC<< bochsrc:30: directive 'floppy_command_delay' not understood
+
+floppy_command_delay: 500
+
+改成
+
+#floppy_command_delay: 500
+
+Bochs竟然说不认识这个指令！不管他，直接注释掉。
+
+
+
+3 
+ Event type: PANIC 
+Device: [MEM0 ] 
+Message: ROM: System BIOS must end at 0xfffff 
+
+
+问题原因： 
+在2.3.5以前的bochs使用的BIOS-bochs-latest是64k的，那个时候需要加上 
+romimage: file=BIOS-bochs-latest,address=0xf0000（举例） 
+在2.3.5中的BIOS-bochs-latest更新了，变成了128k的，这个时候配置需要改为 
+romimage: file=$BXSHARE/BIOS-bochs-latest （举例，也就是要去掉address=0xf000）
+
+
+在2.2.5以前的版本，Bochs的BIOS大小为64K，需要指定起始地址为0xf0000。之后的版本可支持512K的BIOS镜像。现在默认用的BIOS-bochs-latest的好像是128K（官方说法），我看了一下是132K。反正不需要指定起始地址了。
+
+
+
+4  >>PANIC<< bochsrc:42: 'usb1' directive is now deprecated, use 'usb_uhci' instead
+
+usb1: enabled=1, ioaddr=0xFF80, irq=10
+改为
+usb_uhci: enabled=1, ioaddr=0xFF80, irq=10
+
+
+5  >>PANIC<< dlopen failed for module 'sdl': file not found
+
+sudo apt-get install bochs-sdl
+
+
+
+6  >>PANIC<< Could not open '/dev/lp0' to write parport1 output
+
+解决办法：
+
+编辑配置文件
+
+parport1: enabled=1, file="/dev/lp0"
+
+改成
+parport1: enabled=1, file="parport.out"
+
+或直接在行首加#注释掉。这个是并口设备，一般给打印机用。修改后，会把发往并口的数据写到parport.out里。
+
+
+
+
+
+7  
+bochs-bin: symbol lookup error: /usr/lib/bochs/plugins/libbx_x.so: undefined symbol: XpmCreatePixmapFromData
+
+
+自己的解决方法：
+kolya@mint17 ~/orange's $ export LD_PRELOAD=/usr/lib/i386-linux-gnu/libXpm.so.4
+kolya@mint17 ~/orange's $ bochs -f bochsrc 
+
+
+ubuntu 12.04  下bochs-2.4.6 可能会出现这个错误。
+很明显，由apt-get install bochs-x 得到的 libbx_x.so不完善造成的，如此可以得到两个解决方法：
+（1）直接换个显示方案，比如：
+[cpp] view plain copy
+sudo apt-get install bochs-sdl   
+然后在bochs的配置文件中将display_library的置为sdl，如：
+[cpp] view plain copy
+display_library: sdl  
+这样再运行即OK！
+（2）运行时再加一个包含XpmCreatePixmapFromData的动态库再运行bochs，比如：
+[cpp] view plain copy
+export LD_PRELOAD=/usr/lib/i386-linux-gnu/libXpm.so.4  
+
+
+
+
+8
+启动bochs后进入死循环，鼠标键盘都无法响应
+
+解决办法：
+
+按Ctrl＋Alt＋F1，启动另一个tty,以root身份登录，然后
+
+#top
+
+在列表中找到进程bochs-bin的PID，按k，输入那个PID直，回车，再按q退出；
+
+#exit
+
+退出root，按Ctrl＋Alt＋F7（也可能是别的，挨个试）回到原来的用户，此时Bochs已被关闭。
+
+如果Ctrl＋Alt＋F1不好使，那就想别的方法（比如远程）登录到你的机器，执行相同的操作。
+
+
+
+
+
+
+《orange's :一个操作系统的实现》的附带光盘里有一个已经配置好的bochrsc，但
+是它是针对bochs2.3版本的
+
+
+
+#romimage: file=$BXSHARE/BIOS-bochs-latest （适用于bochs安装在windows下）
+vgaromimage: /usr/local/share/vgabios/vgabios.bin
+#vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest（适用bochs安装在windows下）
+
+
+
+
+问题三、bochs的启动配置文件bochsrc
+一般网上的资料都会提示你安装好后会有如下工具：
+/usr/bin/bochs     Bochs启动程序
+/usr/bin/bximage     Bochs带的制作磁盘镜像文件的工具
+/usr/bin/bxcommit     把redolog放进flat磁盘镜像文件中去的交互工具
+/usr/share/doc/bochs/bochsrc-sample.txt     Bochs配置文件的例子
+/usr/share/bochs/BIOS-bochs-*     ROM BIOS镜像文件
+/usr/share/bochs/VGABIOS-*     与VGA BIOS镜像文件相关的文件
+/usr/bin/bochs-dlx     启动Bochs中DLX linux的程序
+/usr/share/bochs/dlxlinux/     DLX Linux的目录，包含它的磁盘镜像文件和配置文件
+/usr/share/bochs/keymaps/*.map     X11和SDL的keymap列表 
+其实在终端安装的却没有第四、第七和第八项，就连第二第三项也要另外安装：
+       sudo apt-get install bximage
+       sudo apt-get install bxcommit
+所以，网上那些bochsrx在Ubuntu是运行不了的，就因为这点，我搞近一个下午，开始我老以为是配置文件不对呢。
+普通的bochsrc：
+romimage: file=$BXSHARE/BIOS-bochs-latest,
+
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+但是在Ubuntu下压根就没有VGABIOS-lgpl-latest
+例如：
+lzel@lzel-desktop:/usr/share/bochs$ ls
+BIOS-bochs-latest  BIOS-bochs-legacy  BIOS-qemu-latest   keymaps 
+lzel@lzel-desktop:/usr/share/bochs$ 
+后来我才发现，从终端下安装bochs时它把VGA专门作为了一个程序安装在了/usr/share/vgabios/中了。
+lzel@lzel-desktop:/usr/share/bochs$ ls /usr/share/vgabios/
+vgabios.bin  vgabios.cirrus.bin  vgabios.cirrus.debug.bin  vgabios.debug.bin
+lzel@lzel-desktop:/usr/share/bochs$ 
+这样配置文件就要改为：
+
+   romimage: file=$BXSHARE/BIOS-bochs-latest
+   megs:4
+   floppya: image=./boot.img,status=inserted
+   vgaromimage: file=/usr/share/vgabios/vgabios.bin
+  boot:a                                                                                                                                                   
+  log:out.bochs
+
+  
+  
+  
+
+
+
+
