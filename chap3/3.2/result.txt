@@ -1,0 +1,25 @@
+_________________________________________________________________________
+
+WELCOME TO THE FREEDOS BETA4 RELEASE!
+
+
+Type INSTALL to start the FreeDOS installation
+
+If you need to create a partition on your hard disk for FreeDOS, you
+will need to do that yourself.  Use FDISK to create a partition, and
+use FORMAT to make the partition writable by FreeDOS.  You can run
+In Protect Mode now. ^-^Install Boot Floppy.
+00 00 00 00 00 00 00 00
+41_42_43_44_45_46_47_48__________________________________________________
+A:\>dir b:
+
+ Volume in drive B has no label
+ Directory of B:\*.*
+
+PMTEST2  COM         1,114 04-11-117   4:10p
+        1 file           1,114 bytes
+        0 dirs       1,456,640 bytes free
+
+A:\>b:\pmtest2.com
+
+A:\>ß
