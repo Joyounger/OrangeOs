@@ -1,0 +1,25 @@
+_________________________________________________________________________
+
+WELCOME TO THE FREEDOS BETA4 RELEASE!
+
+
+Type INSTALL to start the FreeDOS installation
+In Protect Mode now. ^-^
+If you need to create a partition on your hard disk for FreeDOS, you
+BaseAddrL BaseAddrH LengthLow LengthHigh   Typeeate a partition, and
+00000000hT00000000ht0009F000hi00000000hl00000001hDOS.  You can run
+0009F000hr00000000ht00001000hl00000000ho00000002h
+000E8000h 00000000h 00018000h 00000000h 00000002h
+00100000h_00000000h_01EF0000h_00000000h_00000001h________________________
+01FF0000h:00000000h 00010000h 00000000h 00000003h
+FFFC0000h 00000000h 00040000h 00000000h 00000002h
+ Volume in drive B has no label
+RAM size:01FF0000h.*
+
+PMTEST7  COM         1,790 04-11-117   5:46p
+        1 file           1,790 bytes
+        0 dirs       1,456,128 bytes free
+
+A:\>b:\pmtest7.com
+
+A:\>ß
