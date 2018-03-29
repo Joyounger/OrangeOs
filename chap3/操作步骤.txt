@@ -1,0 +1,70 @@
+3.1
+nasm pmtest1.asm -o pmtest1.bin
+dd if=pmtest1.bin of=floppy.img bs=512 count=1 conv=notrunc
+sudo bochs
+c
+
+
+
+3.1.1 freedos:
+sudo bochs,c
+在bochs模拟出的终端中输入format b:
+nasm pmtest1-dos.asm -o pmtest1-dos.com
+sudo mkdir -p /mnt/floppy
+sudo mount -o loop pm.img /mnt/floppy
+sudo cp pmtest1-dos.com /mnt/floppy
+sudo umount /mnt/floppy
+sudo bochs,c
+在bochs模拟出的终端中输入
+dir b:
+b:\pmte(按tab)
+
+
+3.2
+make
+sudo bochs,c
+dir b:
+b:\pmte(按tab补全)
+
+
+3.2.2
+make
+sudo bochs,c
+dir b:
+b:\pmtest3.com
+
+3.2.4
+make
+bochs,c
+dir b:
+b:\pmtest4.com
+
+3.2.4.5-6
+make
+bochs,c
+dir b:
+b:\pmte...
+
+3.3
+3.3.5
+make
+bochs,c
+dir b:
+b:\pmte...
+
+3.3.6
+make
+bochs,c
+dir b:
+b:\pmtest7.com
+
+
+3.3.6
+make
+bochs,c
+dir b:
+b:\pmtest8.com
+
+
+
+
