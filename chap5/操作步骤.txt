@@ -1,0 +1,95 @@
+5.1
+ld -s hello.o -o hello.elf
+ld: i386 架构于输入文件 hello.o 与 i386:x86-64 输出不兼容
+解决方法：
+http://www.cnblogs.com/yangRyoung/p/5603247.html
+Use 64 bits instead of 32 for your loader and compile it with the following command:
+nasm -f elf64 loader.asm -o loader.o
+
+
+make
+./hello.elf
+
+kolya@asus ~/src/OrangeOs/chap5/5.1 $ make
+ls
+hello.asm  Makefile
+# nasm -f elf hello.asm -o hello.o
+# Use 64 bits instead of 32 for your loader and compile it with the following command
+nasm -f elf64 hello.asm -o hello.o
+ls
+hello.asm  hello.o  Makefile
+ld -s hello.o -o hello.elf
+ls
+hello.asm  hello.elf  hello.o  Makefile
+kolya@asus ~/src/OrangeOs/chap5/5.1 $ ls
+hello.asm  hello.elf  hello.o  Makefile
+
+kolya@asus ~/src/OrangeOs/chap5/5.1 $ ./hello.elf
+Hello, world!
+
+查看生成文件架构信息
+kolya@asus ~/src/OrangeOs/chap5/5.1 $ file hello.o
+hello.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
+kolya@asus ~/src/OrangeOs/chap5/5.1 $ file hello.elf64
+hello.elf64: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped
+
+
+5.2节
+foo.asm中包含指令push，由于64位下没有push qword imm64等指令，因此本地编译时不能再用nasm -f elf64生成64位的目标文件
+这时还是用-f elf选项编译foo.asm
+这导致bar.c也必须用gcc编译为32位，链接时也必须指定输出架构为32位
+使用-m32来使得gcc编译32位程序（在x86_64系统上），使用-m elf_i386参数可以使得64位的ld输出32位的elf
+因此makefile中ASMFLAGS不变，CFLAGS变为-c -m32，LDFLAGS变为-s -m elf_i386
+
+kolya@asus ~/src/OrangeOs/chap5/5.2 $ make
+nasm -f elf -o foo.o foo.asm
+gcc -c -m32 -o bar.o bar.c
+ld -s -m elf_i386 -o foobar.elf32 foo.o bar.o
+kolya@asus ~/src/OrangeOs/chap5/5.2 $ ./foobar.elf32 
+the 2nd one
+
+
+查看生成文件架构信息
+kolya@asus ~/src/OrangeOs/chap5/5.2 $ file foo.o
+foo.o: ELF 32-bit LSB relocatable, Intel 80386, version 1 (SYSV), not stripped
+kolya@asus ~/src/OrangeOs/chap5/5.2 $ file foobar.elf32 
+foobar.elf32: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, stripped
+
+
+5.4.1：
+5.4.2：
+5.4.4：
+5.5.1:
+make
+bochs,c
+
+
+5.5.3:
+make iamge
+bochs,c
+
+
+5.5.4/a:
+make iamge
+bochs,c
+
+make image出错：
+1 kernel/protect.c: In function ‘exception_handler’:
+kernel/protect.c:153:2: warning: implicit declaration of function ‘disp_int’ [-Wimplicit-function-declaration]
+  disp_int(eflags);
+解决：include/proto.h最后加一行
+PUBLIC void disp_int(int input);
+
+2 
+ld -m elf_i386 -s -Ttext 0x30400 -o kernel.bin kernel/kernel.o kernel/start.o kernel/i8259.o kernel/global.o kernel/protect.o lib/klib.o lib/kliba.o lib/string.o
+kernel/protect.o：在函数‘exception_handler’中：
+protect.c:(.text+0x31d)：对‘__stack_chk_fail’未定义的引用
+lib/klib.o：在函数‘disp_int’中：
+klib.c:(.text+0xe8)：对‘__stack_chk_fail’未定义的引用
+解决：Makefile中CFLAGS加上 -fno-stack-protector
+
+
+
+5.5.4/b:
+make iamge
+bochs,c
