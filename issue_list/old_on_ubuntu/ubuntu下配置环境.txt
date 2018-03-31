@@ -1,0 +1,58 @@
+bochs2.6.8！！
+sudo apt-get install bochs -x 
+
+1  ./configure --enable-debugger --enable-disasm 路径不能有中文，不能有‘s
+
+2  x.cc:42:35: fatal error: X11/extensions/Xrandr.h: 没有那个文件或目录
+ #include <X11/extensions/Xrandr.h>
+
+sudo apt-get  install libxrandr-dev
+
+
+
+3  sudo make install
+install: 无法获取"./bochsdbg" 的文件状态(stat): 没有那个文件或目录
+
+
+需要在make后，将bochs拷贝一份，命名为bochsdbg
+
+cp bochs bochsdbg
+
+
+4 执行bochs出现
+1 
+ochs is exiting with the following message:
+[      ] bochsrc:10: vgaromimage directive malformed.
+bx_dbg_read_linear: physical memory read error (phy=0x000000000000, lin=0x00000000)
+00000000000i[SIM   ] quit_sim called with exit code 1
+
+
+Error 2: 运行bochs时，出现错误”bochsrc:10: vgaromimage directive malformed，“
+　　  Solution: 将bochsrc文件中第10行vgaromimage: /usr/share/vgabios/vgabios.bin改为
+
+　　　　　　                           vgaromimage: file=/usr/share/vgabios/vgabios.bin
+
+
+
+
+2  Bochs is exiting with the following message:
+[      ] bochsrc:26: 'keyboard_mapping' is deprecated - use 'keyboard' option instead.
+
+
+Solution: 
+# enable key mapping, using US layout as default.
+keyboard_mapping: enabled=1, map=你bochs-2.4.6的路径/gui/keymaps/x11-pc-us.map
+然后它报错 'keyboard_mapping' is deprecated - use 'keyboard' option instead.恩，于是我就直接用keyboard直接代替，他又和我说keyboard directive malformed.大概就是参数错误的意思，然后我就一直百度，想说大家或许有遇到和我一样问题的，结果都没发现。可能是因为用的bochs版本不同吧。然后我灵机一动去看他的sample-txt，知道了keyboard的参数格式，才解决。
+把最后一行换做
+keyboard:keymap=/usr/local/share/bochs/keymaps/x11-pc-de.map  
+问题解决
+
+
+
+5 执行bochs后停在这里黑屏：
+00000000000i[      ] set SIGINT handler to bx_debug_ctrlc_handler
+Next at t=0
+(0) [0x0000fffffff0] f000:fff0 (unk. ctxt): jmpf 0xf000:e05b          ; ea5be000f0
+
+Solution: 
+在终端命令窗口输入：<bochs:1>c，加载OS。

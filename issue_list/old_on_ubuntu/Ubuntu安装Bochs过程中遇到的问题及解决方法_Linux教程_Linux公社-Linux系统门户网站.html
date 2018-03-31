@@ -1,0 +1,337 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<title>Ubuntu安装Bochs过程中遇到的问题及解决方法_Linux教程_Linux公社-Linux系统门户网站</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"/>
+<meta name="description" content="学习操作系统，下载了bochs最新版本，但是不会编译安装，老是出错，用了一会简单的无调试功能的bochs但是感觉缺少点什么，想用带"/>
+<meta name="keywords" content="Bochs,Ubuntu安装教程,Ubuntu安装Bochs过程中遇到的问题及解决方法,Linux,Linux教程,Linux系统,Linux安装,Ubuntu,Fedora,RedHat,SUSE,CentOS,红旗Linux"/>
+<link rel="canonical" href="http://www.linuxidc.com/Linux/2012-05/61422.htm"/>
+<meta name="generator" content="Linux公社"/>
+<meta name="generator" content="Linux"/>
+<link rel="stylesheet" href="../../style/systems/style.css" type="text/css"/>
+<meta name="generator" content="专业的Linux网站"/>
+<script type="text/javascript" src="../../inc/jquery.js"></script>
+<script type="text/javascript" src="../../inc/iwms.js"></script>
+<script type="text/javascript">iwms.urlPrefix="../../";</script>
+
+<script type="text/javascript" src="../../inc/show.js"></script>
+</head>
+<body>
+<div class="topBar">
+	<div class="twidth">
+	
+	<div style="float:right">
+		<script type="text/javascript" src="../../inc/language.js"></script>
+	</div>
+	
+	<div id="topUser">你好，游客 <a href="#" onclick="iwms.logPop()">登录</a>
+	<a href="../../memberreg.aspx" rel="nofollow">注册</a>
+	<a href="../../search.aspx" rel="nofollow">搜索</a>
+	</div>
+	</div>
+</div>
+<div class="twidth">
+<div id="sitehead">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<table width="100%">
+	<tr align="center"><td width="160">
+	<a href="http://www.linuxidc.com/"><img style="filter: chroma(color=#FFFFFF);" src="../../pic/logo.jpg" alt="Linux公社" width="155" height="53" border="0" /></a>
+	</td><td>
+	<div align="center"><script src="/linuxfile/linux.js" type="text/javascript" language="javaScript"></script></div>
+	</td>
+	</tr></table>
+</div>
+</div>
+<div id="navbar">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="../../index.htm" class="first">首页</a><a href="../../it/">Linux新闻</a><a href="../../Linuxit/" class="thisclass">Linux教程</a><a href="../../MySql/">数据库技术</a><a href="../../RedLinux/">Linux编程</a><a href="../../Apache/">服务器应用</a><a href="../../Unix/">Linux安全</a><a href="../../download/">Linux下载</a><a href="../../Linuxrz/">Linux认证</a><a href="../../theme/">Linux主题</a><a href="../../Linuxwallpaper/">Linux壁纸</a><a href="../../linuxsoft/">Linux软件</a><a href="../../digi/">数码</a><a href="../../mobile/">手机</a><a href="../../diannao/">电脑</a>
+
+</div>
+</div>
+
+<div id="navsub">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="../../index.htm">首页</a> → <a href="../../Linuxit/">Linux教程</a>
+</div>
+</div>
+<div class="linuxe1"><script type="text/javascript" language="javaScript" src="/linuxfile/linuxe1.js"></script></div>
+<div class="linux1"><script type="text/javascript" language="javaScript" src="/linuxfile/linux1.js"></script></div>
+<div class="linuxa"><script type="text/javascript" language="javaScript" src="/linuxfile/linuxa.js"></script></div>
+<div class="linuxa1"><script type="text/javascript" language="javaScript" src="/linuxfile/linuxa1.js"></script></div>
+<table id="middle" width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+<tr valign="top"><td>
+
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<div class="moreR">
+			背景：<script type="text/javascript">WriteBg()</script>
+		</div>
+		<span class="tt">阅读新闻</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm" id="bodyTd">
+		<div id="printBody" style="word-break:break-all;">
+			<div style="text-align:center"><h1 class="aTitle">Ubuntu安装Bochs过程中遇到的问题及解决方法</h1></div>
+			
+			<table width="97%" align="center">
+				<tr>
+				<td width="140">[日期：2012-05-29]</td>
+				<td align="center">来源：Linux社区&nbsp;
+				作者：Linux</td>
+				<td width="160" align="right">[字体：<a href="javascript:ContentSize(16)">大</a> <a href="javascript:ContentSize(0)">中</a> <a href="javascript:ContentSize(12)">小</a>]
+				</td></tr>
+			</table>
+<div id="li_all">
+<div id="li_1"><script type="text/javascript" src="/linuxfile/linux201.js"></script></div>
+<div id="li_2"><script type="text/javascript" src="/linuxfile/linux2.js"></script></div>
+</div>
+			<div id="content"><div class="linux19"><script type="text/javascript" language="javaScript" src="/linuxfile/linux19.js"></script></div> <P>学习操作系统，下载了bochs最新版本，但是不会编译安装，老是出错，用了一会简单的无调试功能的bochs但是感觉缺少点什么，想用带调试功能的，网上搜索了好多资料，终于自己完成了编译安装的bochs，不容易啊，赶紧分享一下，linux版本是<a href="http://www.linuxidc.com/topicnews.aspx?tid=2" target="_blank" title="Ubuntu">Ubuntu</a> 9.04 虚拟己版本是bochs 2.4.1</P>
+<P>不带调试功能的简单安装方法:<BR>sudo apt-get install bochs</P>
+<P>带调试功能的bochs安装</P>
+<P>sudo apt-get install build-essential&nbsp; 安装编译环境</P>
+<P>tar vxzf bochs-2.4.1.tar.gz<BR>cd bochs-2.3.5<BR>./configure --enable-debugger --enable-disasm<BR>这一步问题出来了，没注意配置时出现的问题就接着make了，导致make的时候，老是说83行遗漏分隔符。后来注意到了configure 的时候最后一行出现了一句：</P>
+<P>&gt; ERROR: X windows gui was selected, but X windows libraries were not found.</P>
+<P>后来解决了，sudo aptitude install xorg-dev</P>
+<P>When install bochs, While I compile come file with ./configure there give a msg:</P>
+<P>&gt; configure: WARNING: Bochs for wxWidgets cannot be compiled here, disabling it </P>
+<P>&gt; checking for default gui on this platform... x11 </P>
+<P>&gt; ERROR: X windows gui was selected, but X windows libraries were not found.</P>
+<P>I just follow this :</P>
+<P>You need to install the development libraries. To compile a wxWidgets </P>
+<P>program you need libwxbase2.4-dev, libwxbase2.4-dev, and </P>
+<P>libwxgtk2.4-contrib-dev (for a wx2.4 program) or libwxgtk2.6-dev (for a </P>
+<P>wx2.6 program). For an X11 program you need x-window-system-dev, which </P>
+<P>should pull in all the dependencies you need.</P>
+<P>but I couldn't install the x-window-system-dev with: sudo apt-get install x-window-system-dev</P>
+<P>the to solved this just:</P>
+<P>sudo aptitude install xorg-dev&nbsp; everything is fine with the ./configure now .</P>
+<P><BR>sudo apt-get install xorg-dev无法安装，吼吼，又学到了个aptitude 。</P>
+<P>再./configure 试试，晕，又有错误，错误提示是<BR>checking for display libraries...&nbsp; X11<BR>Package gtk+-2.0 was not found in the pkg-config search path.<BR>Perhaps you should add the directory containing `gtk+-2.0.pc'<BR>to the PKG_CONFIG_PATH environment variable<BR>No package 'gtk+-2.0' found<BR>ERROR: pkg-config was not found, or unable to access the gtk+-2.0 package.<BR>Install pkg-config and the gtk+ development package,<BR>or disable the gui debugger, or the wxWidgets display library (whichever is being used).</P>
+<P>这个安装了个 gtk就解决了 <BR>sudo aptitude install libgtk2.0-dev (这个是自己猜的，安装上果然可以了，呵呵，还有点天分)</P>
+<P>然后make，make 的时候也出了点问题。<BR>proc_ctrl.cc:654: 错误： ‘CheckPDPTR’在此作用域中尚未声明<BR>proc_ctrl.cc:668: 错误： ‘CheckPDPTR’在此作用域中尚未声明<BR>make[1]: *** [proc_ctrl.o] 错误 1<BR>make[1]:正在离开目录 `/media/disk-1/Linux/bochs-2.4.1/cpu'<BR>make: *** [cpu/libcpu.a] 错误 2</P>
+<P>上网搜的是那个文件出了错proc_ctrl.cc</P>
+<P>make时的错误<BR>proc_ctrl.cc:654: error: ‘CheckPDPTR’ was not declared in this scope <BR>proc_ctrl.cc:668: error: ‘CheckPDPTR’ was not declared in this scope <BR>make[1]: *** [proc_ctrl.o] Error 1 </P>
+<P>GCC版本gcc (Ubuntu 4.3.3-5ubuntu4) 4.3.3</P>
+<P>自己解决:</P>
+<P>代码:<BR>650行开始 <BR>#if BX_SUPPORT_VMX <BR>VMexit_CR3_Write(i, val_32); <BR>if (BX_CPU_THIS_PTR cr0.get_PG() &amp;&amp; BX_CPU_THIS_PTR cr4.get_PAE() &amp;&amp; <BR>!long_mode()) { <BR>if (! CheckPDPTR(val_32)) { <BR>BX_ERROR(("SetCR3(): PDPTR check failed !")); <BR>exception(BX_GP_EXCEPTION, 0, 0); <BR>} <BR>} <BR>SetCR3(val_32); <BR>BX_INSTR_TLB_CNTRL(BX_CPU_ID, BX_INSTR_MOV_CR3, val_32); <BR>break; <BR>#endif <BR>#if BX_CPU_LEVEL &gt; 3 <BR>case 4: // CR4 <BR>#if BX_SUPPORT_VMX <BR>val_32 = VMexit_CR4_Write(i, val_32); <BR>if (BX_CPU_THIS_PTR cr0.get_PG() &amp;&amp; (val_32 &amp; (1&lt;&lt;5)) != 0 /* PAE */ <BR>&amp;&amp; !long_mode()) { <BR>if (! CheckPDPTR(BX_CPU_THIS_PTR cr3)) { <BR>BX_ERROR(("SetCR4(): PDPTR check failed !")); <BR>exception(BX_GP_EXCEPTION, 0, 0); <BR>} <BR>} <BR>// Protected mode: #GP(0) if attempt to write a 1 to <BR>// any reserved bit of CR4 <BR>if (! SetCR4(val_32)) <BR>exception(BX_GP_EXCEPTION, 0, 0); <BR>break; <BR>#endif <BR>#endif <BR>default: <BR>BX_ERROR(("MOV_CdRd: #UD - control register %d index out of range", <BR>i-&gt;nnn())); <BR>exception(BX_UD_EXCEPTION, 0, 0); <BR>} <BR>} </P>
+<P>683结束</P>
+<P><BR>代码:<BR>@@ -649,7 +649,6 @@<BR>case 3: // CR3<BR>#if BX_SUPPORT_VMX<BR>VMexit_CR3_Write(i, val_32);<BR>-#endif<BR>if (BX_CPU_THIS_PTR cr0.get_PG() &amp;&amp; BX_CPU_THIS_PTR cr4.get_PAE() &amp;&amp; !long_mode()) {<BR>if (! CheckPDPTR(val_32)) {<BR>BX_ERROR(("SetCR3(): PDPTR check failed !"));<BR>@@ -659,11 +658,11 @@<BR>SetCR3(val_32);<BR>BX_INSTR_TLB_CNTRL(BX_CPU_ID, BX_INSTR_MOV_CR3, val_32);<BR>break;<BR>+#endif<BR>#if BX_CPU_LEVEL &gt; 3<BR>case 4: // CR4<BR>#if BX_SUPPORT_VMX<BR>val_32 = VMexit_CR4_Write(i, val_32);<BR>-#endif<BR>if (BX_CPU_THIS_PTR cr0.get_PG() &amp;&amp; (val_32 &amp; (1&lt;&lt;5)) != 0 /* PAE */ &amp;&amp; !long_mode()) {<BR>if (! CheckPDPTR(BX_CPU_THIS_PTR cr3)) {<BR>BX_ERROR(("SetCR4(): PDPTR check failed !"));<BR>@@ -676,6 +675,7 @@<BR>exception(BX_GP_EXCEPTION, 0, 0);<BR>break;<BR>#endif<BR>+#endif<BR>default:<BR>BX_ERROR(("MOV_CdRd: #UD - control register %d index out of range", i-&gt;nnn()));<BR>exception(BX_UD_EXCEPTION, 0, 0);</P>
+<P>问题6： <BR>&nbsp;&nbsp;&nbsp; install: 无法获取"./bochsdbg" 的文件状态(stat): 没有该文件或目录</P>
+<P>&nbsp;&nbsp;&nbsp; 解决办法：需要在make后，将bochs拷贝一份，命名为bochsdbg</P>
+<P>make问题解决了，然后<BR>sudo make install 就可以了</P><a href="http://www.linuxidc.com" target="_blank"><img src="/linuxfile/logo.gif" alt="linux" width="15" height="17" /></div>
+<div class="linux301"><script type="text/javascript" src="/linuxfile/linux301.js"></script></div>
+<div class="linux3"><script type="text/javascript" src="/linuxfile/linux3.js"></script></div>
+<div class="linux302"><script type="text/javascript" src="/linuxfile/linux302.js"></script></div>		
+			
+			
+		</div>
+		<div style="padding:0 15px">
+			<ul id="digg" class="digg">
+				<li class="digg1">0</li>
+				<li class="digg2"><a href="###" onclick="iwms.diggIt(this,iwms.aId)">顶一下</a></li>
+			</ul>	
+		</div>
+<div class="linuxfx"><script type="text/javascript" language="javaScript" src="/linuxfile/fx.js"></script></div>	
+<div class="linux8"><script type="text/javascript" language="javaScript" src="/linuxfile/linux8.js"></script></div>
+<div class="linux801"><script type="text/javascript" language="javaScript" src="/linuxfile/linux801.js"></script></div>
+		<div class="nearNews">
+			<div class="prevNews"><a href="../../Linux/2012-05/61403.htm">RHEL5.5安装rrdtool 解决多多依赖关系</a></div>
+			<div class="nextNews"><a href="../../Linux/2012-05/61440.htm">Redhat/CentOS系统中YUM常用命令介绍</a></div>
+		</div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">相关资讯</span> &nbsp; &nbsp; &nbsp;
+		<a href="../../search.aspx?where=nkey&amp;keyword=6874" target="_blank">Bochs</a>&nbsp; <a href="../../search.aspx?where=nkey&amp;keyword=9476" target="_blank">Ubuntu安装教程</a>&nbsp; 
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width='100%'><tr><td width='50%' valign='top'><ul class='nl'><li><a href="../../Linux/2014-05/102460.htm"  target="_blank"  title="在Ubuntu下用Bochs仿真freedos学习8086汇编和debug调试">在Ubuntu下用Bochs仿真freedos学习</a>&nbsp; <span class="gray">(05/29/2014 19:53:28)</span></li>
+<li><a href="../../Linux/2013-01/77790.htm"  target="_blank"  title="Ubuntu安装软件提示“无法打开锁文件 /var/lib/dpkg/lock ”问题解决">Ubuntu安装软件提示“无法打开锁文</a>&nbsp; <span class="gray">(01/14/2013 09:50:19)</span></li>
+<li><a href="../../Linux/2012-12/76768.htm"  target="_blank"  title="给Ubuntu安装HTC样式的My Weather Indicator">给Ubuntu安装HTC样式的My Weather </a>&nbsp; <span class="gray">(12/24/2012 16:02:28)</span></li>
+</ul></td><td width='50%' valign='top'><ul class='nl'><li><a href="../../Linux/2013-03/80419.htm"  target="_blank"  title="Bochs 2.6 发布，开源 x86 虚拟机软件">Bochs 2.6 发布，开源 x86 虚拟机</a>&nbsp; <span class="gray">(03/05/2013 18:50:39)</span></li>
+<li><a href="../../Linux/2012-12/76952.htm"  target="_blank" >CentOS 6.0 源码 编译 安装 Bochs</a>&nbsp; <span class="gray">(12/27/2012 12:11:05)</span></li>
+<li><a href="../../Linux/2012-12/76723.htm"  target="_blank"  title="Ubuntu下如何用命令行运行deb安装包">Ubuntu下如何用命令行运行deb安装</a>&nbsp; <span class="gray">(12/23/2012 19:51:35)</span></li>
+</ul></td></tr></table>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">图片资讯</span> &nbsp; &nbsp; &nbsp;
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+<div class="imgList"><ul><li style="width:25%"><a href="../../Linux/2014-05/102460.htm"  target="_blank"  title="在Ubuntu下用Bochs仿真freedos学习8086汇编和debug调试"><img src="../../upload/2014_05/14052919575938t.jpg" alt="在Ubuntu下用Bochs仿真freedos学习8086汇编和debug调试" width="120" height="90"/>在Ubuntu下用Bochs仿</a></li><li style="width:25%"><a href="../../Linux/2012-12/76768.htm"  target="_blank"  title="给Ubuntu安装HTC样式的My Weather Indicator"><img src="../../upload/2012_12/121224160764242t.jpg" alt="给Ubuntu安装HTC样式的My Weather Indicator" width="120" height="90"/>给Ubuntu安装HTC样式</a></li><li style="width:25%"><a href="../../Linux/2012-12/75321.htm"  target="_blank"  title="Ubuntu 通过 PPA 安装 Komodo Edit"><img src="../../upload/2012_12/121203222394421t.jpg" alt="Ubuntu 通过 PPA 安装 Komodo Edit" width="120" height="90"/>Ubuntu 通过 PPA 安装</a></li><li style="width:25%"><a href="../../Linux/2012-11/75077.htm"  target="_blank"  title="Ubuntu下安装壁纸切换工具Variety"><img src="../../upload/2012_11/12112910385934t.jpg" alt="Ubuntu下安装壁纸切换工具Variety" width="120" height="90"/>Ubuntu下安装壁纸切换</a></li><li style="width:25%"><a href="../../Linux/2012-11/74966.htm"  target="_blank"  title="Ubuntu下安装数字摄影暗房软件Darktable"><img src="../../upload/2012_11/12112719221056t.jpg" alt="Ubuntu下安装数字摄影暗房软件Darktable" width="120" height="90"/>Ubuntu下安装数字摄影</a></li><li style="width:25%"><a href="../../Linux/2012-11/74957.htm"  target="_blank"  title="Ubuntu 下安装桌面屏幕录制工具Kazam"><img src="../../upload/2012_11/121127185712111t.jpg" alt="Ubuntu 下安装桌面屏幕录制工具Kazam" width="120" height="90"/>Ubuntu 下安装桌面屏</a></li><li style="width:25%"><a href="../../Linux/2012-11/73902.htm"  target="_blank"  title="Linux0.11 运行环境搭建以及调式--bochs"><img src="../../upload/2012_11/121110142684391t.jpg" alt="Linux0.11 运行环境搭建以及调式--bochs" width="120" height="90"/>Linux0.11 运行环境搭</a></li><li style="width:25%"><a href="../../Linux/2012-11/73447.htm"  target="_blank"  title="制作U盘启动Linux安装（Ubuntu 12.04）"><img src="../../upload/2012_11/121102211319191t.jpg" alt="制作U盘启动Linux安装（Ubuntu 12.04）" width="120" height="90"/>制作U盘启动Linux安装</a></li></ul></div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	
+	
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">本文评论</span>
+		 	　　<a href="../../remark.aspx?id=61422" target="_blank">查看全部评论</a> <span class="gray">(0)</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width="100%" style="margin:6px">		
+		<tr><td width="100%">
+			<form action="" name="fmRemarkSt" onsubmit="return remark.post(this);">
+			<input type="hidden" value="1" name="face"/>
+			表情： <img src="../../pic/b.gif" alt="表情" class="face1" style="cursor:pointer;vertical-align:middle" onclick="remark.dispFace(this)" onmouseout="remark.hideFace()"/>
+			姓名： <input type="text" name="username" value="" maxlength="15" style="width:60px" class="inputbg"/>
+			<input type="checkbox" id="rmAnonymitySt" onclick="remark.anony(this)"/><label for="rmAnonymitySt">匿名</label>
+			字数 <input type="text" id="bodyLen" size="3" readonly="readonly" style="border-width:0;background:transparent;vertical-align:middle" value="0"/>
+			<br/>
+			<textarea name="body" cols="40" rows="4" onkeydown="remark.dispLen(this)" onkeyup="remark.handle(event,this);remark.dispLen(this)" style="width:40em;height:100px;margin:3px 0;overflow-y:auto"></textarea>
+				<br/>
+		　　　<input type="checkbox" checked="checked" id="rmAgreeSt"/><label for="rmAgreeSt">同意评论声明</label>
+		　　　<button type="submit" style="width:50px">发表</button>
+			</form>
+		</td></tr>
+		<tr><td width="100%">
+			评论声明
+			<ul style="list-style-type:square;margin:5px 0 0 1em;padding:0">
+			<li>尊重网上道德，遵守中华人民共和国的各项有关法律法规</li>
+			<li>承担一切因您的行为而直接或间接导致的民事或刑事法律责任</li>
+			<li>本站管理人员有权保留或删除其管辖留言中的任意内容</li>
+			<li>本站有权在网站内转载或引用您的评论</li>
+			<li>参与本评论即表明您已经阅读并接受上述条款</li>
+			</ul>
+		</td></tr>
+		</table>
+		<script type="text/javascript" src="../../inc/remark.js"></script>
+		<script type="text/javascript">
+			remark.maxSize=500;
+			remark.minSize=2;
+			remark.sourceEle=$(document.fmRemarkSt).find("button").get(0);
+			iwms.vCode="D2BDA41E";
+			iwms.user.name.length==0 ? $i("rmAnonymitySt").click() : $i("rmAnonymitySt").form.username.value=iwms.user.name;
+		</script>
+		
+		<div class="reCont" id="reContainer"></div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	
+</td><td width="300" valign="top">
+<div class="linux901"><script type="text/javascript" language="javaScript" src="/linuxfile/linux901.js"></script></div>
+<div class="linux902"><script type="text/javascript" language="javaScript" src="/linuxfile/linux902.js"></script></div>
+<div class="linux903"><script type="text/javascript" language="javaScript" src="/linuxfile/linux903.js"></script></div>
+<div class="linux905"><script type="text/javascript" language="javaScript" src="/linuxfile/linux905.js"></script></div>
+	
+	<div class="lframe">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">最新资讯</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<ul class="nl">
+<li><a href="../../Linux/2016-04/130808.htm" target="_blank">NTP 服务进程修复了一大波安全漏洞，请尽快升级</a></li>
+<li><a href="../../Linux/2016-04/130807.htm" target="_blank" class="highlight">VMware虚拟机 Ubuntu 16.04 安装 VMware Tools</a></li>
+<li><a href="../../Linux/2016-04/130806.htm" target="_blank" title="安装 VMware Tools 时报 客户机操作系统已将 CD-ROM 门锁定，并且可能正在使用CD-ROM">安装 VMware Tools 时报 客户机操作系统已将 CD</a></li>
+<li><a href="../../Linux/2016-04/130805.htm" target="_blank">Java开发中使用POI库操作Excel</a></li>
+<li><a href="../../Linux/2016-04/130804.htm" target="_blank">Hibernate实体类属性应该使用int还是Integer</a></li>
+<li><a href="../../Linux/2016-04/130803.htm" target="_blank">Python time模块学习</a></li>
+<li><a href="../../Linux/2016-04/130802.htm" target="_blank">Erlang/OTP 18.3.2发布下载</a></li>
+<li><a href="../../Linux/2016-04/130801.htm" target="_blank">微软就升级到新版Outlook.com出现延迟进行解释</a></li>
+<li><a href="../../Linux/2016-04/130800.htm" target="_blank">开源新闻：《古墓丽影》2013 登陆 Linux</a></li>
+<li><a href="../../Linux/2016-04/130799.htm" target="_blank">微软测试DNA储存</a></li>
+</ul>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+
+	<div class="lframe">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">本周热门</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<ul class="nl">
+<li><a href="../../Linux/2014-10/108430.htm" target="_blank">Windows 7下硬盘安装Ubuntu 14.10图文教程</a></li>
+<li><a href="../../Linux/2016-04/130520.htm" target="_blank">Ubuntu 16.04 U盘安装图文教程</a></li>
+<li><a href="../../Linux/2014-04/100369.htm" target="_blank" class="highlight">Windows 7下硬盘安装Ubuntu 14.04图文教程</a></li>
+<li><a href="../../Linux/2016-03/129158.htm" target="_blank">将Ubuntu 15.10升级到Ubuntu 16.04</a></li>
+<li><a href="../../Linux/2016-04/130519.htm" target="_blank">Ubuntu 16.04 LTS安装好需要设置的15件事</a></li>
+<li><a href="../../Linux/2014-10/108014.htm" target="_blank">U盘安装CentOS 7.0图文详解教程</a></li>
+<li><a href="../../Linux/2014-08/105090.htm" target="_blank">如何在Ubuntu 14.04中安装最新版Eclipse</a></li>
+<li><a href="../../Linux/2014-10/108013.htm" target="_blank">VMware虚拟机下安装CentOS7.0图文教程</a></li>
+<li><a href="../../Linux/2013-05/84014.htm" target="_blank">Android 手机上安装并运行 Ubuntu 12.04</a></li>
+<li><a href="../../Linux/2014-09/107092.htm" target="_blank">VMware安装RedHat6.4过程全程图解</a></li>
+</ul>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	<div class="linuxy9"><script type="text/javascript" language="javaScript" src="/linuxfile/y9.js"></script></div>	
+</td></tr>
+</table>
+<div class="linux906"><script type="text/javascript" language="javaScript" src="/linuxfile/linux906.js"></script></div>
+<div id="footer">
+<a href="http://www.linuxidc.com/aboutus.htm">Linux公社简介</a> - <a href="http://www.linuxidc.com/adsense.htm">广告服务</a> - <a href="http://www.linuxidc.com/sitemap.aspx">网站地图</a> - <a href="http://www.linuxidc.com/help.htm">帮助信息</a> - <a href="http://www.linuxidc.com/contactus.htm">联系我们</a><br />本站（LinuxIDC）所刊载文章不代表同意其说法或描述，仅为提供更多信息，也不构成任何建议。<br /><script type="text/javascript" language="javaScript" src="/linuxfile/qq.js"></script><br />
+<script type="text/javascript" language="javaScript" src="/linuxfile/foot.js"></script><br />Copyright &copy; 2006-2015　<a href="http://www.linuxidc.com/">Linux公社</a>　All rights reserved 沪ICP备15008072号-1号
+	<script type="text/javascript">iwms.aId=61422;$(function(){iwms.imgCont=$i('content');iwms.imgResize();InitContStyle();iwms.getVars();})</script>
+	
+</div>
+</div>
+<script type="text/javascript" language="javaScript" src="/linuxren/linuxren1.js"></script>
+<script type="text/javascript" language="javaScript" src="/linuxren/linuxren2.js"></script>
+<script type="text/javascript" language="javaScript" src="/linuxren/linuxren3.js"></script>
+</body>
+</html>

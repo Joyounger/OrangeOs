@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Orange&#39;S学习笔记（一） - John Shao - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=umTYGJ1Xbo61obX_Gqsil3krUSBXOilTLax6nesdN401"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/ClassicBlue/bundle-ClassicBlue.css?v=ODH5PdkzBpXPSWnsvPqdntRPm3FfsxzPatY8k7hQ7ls1"/>
+<link type="text/css" rel="stylesheet" href="/blog/customcss/86001.css?v=tiCKLtZvtHnCl1AoZW%2f3ir1rZhQ%3d"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/JohnShao/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/JohnShao/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/JohnShao/wlwmanifest.xml"/>
+<script src="http://common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'JohnShao', cb_enable_mathjax=false;</script>
+<script src="/bundles/blog-common.js?v=XKoehlJN5H21FBVcSKsnT53hGsKVYw1yJ99ZTW__hhA1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/JohnShao/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="返回主页" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/JohnShao/">John Shao's Blog</a></h1>
+<h2>记录技术和生活的点点滴滴...
+http://zh.wikipedia.org/zh-cn/ROS</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/JohnShao/">首页</a></li>
+<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="MyLinks1_ContactLink" class="menu" rel="nofollow" href="http://msg.cnblogs.com/send/John%20Shao">联系</a></li>
+<li>
+<!----></li>
+<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			
+<span id="stats_post_count">随笔 - 180&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 32</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/JohnShao/archive/2011/10/23/2221565.html">Orange&#39;S学习笔记（一）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>前段时间一直忙于其他事情，&nbsp;Orange'S的学习暂时搁浅了。现在可以更多时间学习编写操作系统了，把之前学过的重新温习一下。</p>
+<p><span style="font-size: 16px;"><strong>学习环境</strong></span></p>
+<p>&nbsp; Ubuntu 11.04 + Bochs 2.4.6 + NASM</p>
+<p><span style="font-size: 16px;"><strong>主要工作</strong></span></p>
+<p><strong>1. 第一章 马上动手写一个最小的&#8220;操作系统&#8221;</strong></p>
+<p>代码如下：<strong><br />
+</strong></p>
+<div class="cnblogs_code">
+<pre><div><span style="color: #008080;"> 1</span> <span style="color: #000000;"> org 07c00h </span><span style="color: #008000;">　　　　;</span><span style="color: #008000;"> tell the compiler that the program is loaded at 7c00</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> ax, cs<br />
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> ds, ax<br />
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> es, ax<br />
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;"> </span><span style="color: #0000ff;">call</span><span style="color: #000000;"> DispStr </span><span style="color: #008000;">　　　　;</span><span style="color: #008000;"> call the example about string display</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;"> 6</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">jmp</span><span style="color: #000000;"> $ 　　　　</span><span style="color: #008000;"> 　　;</span><span style="color: #008000;"> unlimited loop</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;"> 7</span> <span style="color: #008000;">&nbsp;</span><span style="color: #008080;">DispStr:</span><span style="color: #000000;"><br />
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> ax, BootMessage<br />
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> bp, ax 　　</span><span style="color: #008000;">　　;</span><span style="color: #008000;"> ES:BP = address of string</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;">10</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> cx, </span><span style="color: #800080;">16</span><span style="color: #000000;"> </span><span style="color: #008000;">　　　　;</span><span style="color: #008000;"> CX = length of string</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;">11</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> ax, 01301h 　　</span><span style="color: #008000;">　　;</span><span style="color: #008000;"> AH = 13, AL = 01h</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;">12</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;"> bx, 000ch 　　 </span><span style="color: #008000;">　　;</span><span style="color: #008000;"> page num = 0 (BH = 0), red word with black backgroud (BL = 0ch, highlight)</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;">13</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">mov</span><span style="color: #000000;">dl, </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+</span><span style="color: #008080;">14</span> <span style="color: #000000;"> </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> 10h </span><span style="color: #008000;">　　　　　　;</span><span style="color: #008000;"> break at 10h</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;">15</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;"> </span><span style="color: #0000ff;">ret</span><span style="color: #000000;"><br />
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">BootMessage:</span><span style="color: #000000;"> db </span><span style="color: #800000;">"</span><span style="color: #800000;">Hello, OS World!</span><span style="color: #800000;">"</span><span style="color: #000000;"><br />
+</span><span style="color: #008080;">17</span> <span style="color: #000000;"> times </span><span style="color: #800080;">510</span><span style="color: #000000;">-($-$$) db </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #008000;">;</span><span style="color: #008000;"> fill the remaining space to the number of the binary code reach 512 bytes</span><span style="color: #008000;"><br />
+</span><span style="color: #008080;">18</span> <span style="color: #008000;">&nbsp;</span><span style="color: #000000;">dw 0xaa55 </span><span style="color: #008000;">　　　　 ;</span><span style="color: #008000;"> end</span></div>
+</pre>
+</div>
+<p>要用NASM编译上述代码，首先要安装NASM，然后编译。</p>
+<div class="cnblogs_code">
+<pre><div><span style="color: #000000;">sudo aptitude install nasm<br />
+nasm boot.asm -o boot.bin</span></div>
+</pre>
+</div>
+实
+际上，这只是一个引导扇区。当BIOS检查第一个扇区，发现以0xAA55结束，BIOS就认为这是一个引导扇区。&#8220;一旦BIOS&#8221;发现了引导扇区，就会
+将512字节的内容装载到内存地址0000:7c00处，然后跳转到0000:7c00处将控制权彻底交给这段引导代码。到此为止，计算机不再由BIOS
+中固有的程序来控制，而变成由操作系统的一部分来控制。&#8220;
+<p>指令部分说明</p>
+<ul>
+     <li>org：
+     伪指令，用来规定目标程序存放单元的偏移量。比如，如果在源程序的第一条指令前用了如下指令： org
+     200h，那么，汇编程序会把指令指针的ip的值设成200h,即目标程序的第一个字节放在200h处，后面的 内容则顺序存放，除非遇上另一个org
+     语句;</li>
+</ul>
+<ul>
+     <li>$: 当前被编译的地址;</li>
+     <li>$$: 一个section开始被编译的地址。</li>
+</ul>
+<p>其他nasm指令参见nasm中文手册（有需要的，可以留下e-mail）或登录<a target="_blank" href="http://www.mouseos.com/assembly/nasm03.html">http://www.mouseos.com/assembly/nasm03.html</a>查看。</p>
+<p><strong>2. 第二章 搭建你的工作环境</strong></p>
+<p>通过安装Bochs来搭建我们的工作环境。目前Bochs最新的版本是2.4.6，下载地址是<span style="text-decoration: underline; color: #333399;"><a href="http://sourceforge.net%20/projects/bochs/files/bochs/2.4.6/">http://sourceforge.net
+/projects/bochs/files/bochs/2.4.6/</a></span>。</p>
+<p>（1）<strong>Bochs安装及使用步骤</strong></p>
+<ul>
+     <li>下载源程序;</li>
+</ul>
+<ul>
+     <li>安装build-essential，xorg-dev，libgtk2.0-dev;</li>
+</ul>
+<div class="cnblogs_code">
+<pre><div><span style="color: #000000;">sudo apt-get install build-essential xorg-dev libgtk2.</span><span style="color: #800080;">0</span><span style="color: #000000;">-dev</span></div>
+</pre>
+</div>
+<ul>
+     <li>编译安装;</li>
+</ul>
+<div class="cnblogs_code">
+<pre><div><span style="color: #000000;">$ ./configure --enable-debugger --enable-disasm <br />
+$ make <br />
+$ sudo make install</span></div>
+</pre>
+</div>
+<ul>
+     <li>利用bximage生成虚拟软盘。在输入bximage命令后，在第一步提示选择<strong>fd</strong>即可;</li>
+     <li>将引导扇区写入软盘;</li>
+</ul>
+<div class="cnblogs_code">
+<pre><div><span style="color: #000000;">dd if=boot.bin of=a.img bs=</span><span style="color: #800080;">512</span><span style="color: #000000;"> count=</span><span style="color: #800080;">1</span><span style="color: #000000;"> conv=notrunc</span></div>
+</pre>
+</div>
+<ul>
+     <li>配置bochsrc，具体内容如下，</li>
+</ul>
+<div class="cnblogs_code">
+<pre><div><span style="color: #008080;"> 1</span> <span style="color: #000000;">###############################################################<br />
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;"># Configuration file for Bochs<br />
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">###############################################################<br />
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;"># how much memory the emulated machine will have<br />
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">megs:</span><span style="color: #000000;"> </span><span style="color: #800080;">32</span><span style="color: #000000;"><br />
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;"># filename of ROM images<br />
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">romimage:</span><span style="color: #000000;"> file=/usr/local/share/bochs/BIOS-bochs-latest #/usr/share/bochs/BIOS-bochs-latest<br />
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">vgaromimage:</span><span style="color: #000000;"> file=/usr/local/share/bochs/VGABIOS-lgpl-latest #/usr/share/vgabios/vgabios.bin<br />
+</span><span style="color: #008080;">11</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;">12</span> <span style="color: #000000;"># what disk images will be used<br />
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">floppya:</span><span style="color: #000000;"> 1_44=a.img, status=inserted<br />
+</span><span style="color: #008080;">14</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;">15</span> <span style="color: #000000;"># choose the boot disk.<br />
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">boot:</span><span style="color: #000000;"> floppy<br />
+</span><span style="color: #008080;">17</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;">18</span> <span style="color: #000000;"># where do we send log messages?<br />
+</span><span style="color: #008080;">19</span> <span style="color: #000000;"># </span><span style="color: #008080;">log:</span><span style="color: #000000;"> bochsout.txt<br />
+</span><span style="color: #008080;">20</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;">21</span> <span style="color: #000000;"># disable the mouse<br />
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">mouse:</span><span style="color: #000000;"> enabled=</span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+</span><span style="color: #008080;">23</span> <span style="color: #000000;"><br />
+</span><span style="color: #008080;">24</span> <span style="color: #000000;"># enable key mapping, using US layout as default.<br />
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">&nbsp;</span><span style="color: #008080;">keyboard_mapping:</span><span style="color: #000000;"> enabled=</span><span style="color: #800080;">1</span><span style="color: #000000;">, map=/usr/local/share/bochs/keymaps/x11-pc-us.map #/usr/share/bochs/keymaps/x11-pc-us.map</span></div>
+</pre>
+</div>
+<ul>
+     <li>运行Bochs，显示效果如下图所示，</li>
+</ul>
+<p><img src="http://pic002.cnblogs.com/images/2011/285555/2011061115451347.png" height="368" width="530" alt="" /></p>
+<p>（2）<strong>错误列表</strong></p>
+<p>在安装过程中和使用书带的光盘中的bochsrc时，出现了一些错误，解决方案列举如下，</p>
+<ul>
+     <li>Error 1：安装Bochs时，出现错误&#8221;install: cannot stat `./bochsdbg': No such file or directory&#8220;</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Solution：将源文件中<strong>bochs</strong>的文件夹名称改为<strong>bochsdbg</strong>即可。</p>
+<ul>
+     <li>Error 2: 运行bochs时，出现错误&#8221;bochsrc:10: vgaromimage directive malformed，&#8220;</li>
+</ul>
+<p>　　&nbsp; Solution: 将bochsrc文件中第10行vgaromimage: /usr/share/vgabios/vgabios.bin改为</p>
+<p>　　　　　　&nbsp; vgaromimage: file=/usr/share/vgabios/vgabios.bin</p>
+<p>　　 具体错误输出如下：</p>
+<div class="cnblogs_code">
+<pre><div><span style="color: #000000;">bochs -f bochsrc<br />
+========================================================================<br />
+Bochs x86 Emulator </span><span style="color: #800080;">2</span><span style="color: #000000;">.</span><span style="color: #800080;">4</span><span style="color: #000000;">.</span><span style="color: #800080;">6</span><span style="color: #000000;"><br />
+Build from CVS snapshot, on February </span><span style="color: #800080;">22</span><span style="color: #000000;">, </span><span style="color: #800080;">2011</span><span style="color: #000000;"><br />
+Compiled at Jun </span><span style="color: #800080;">10</span><span style="color: #000000;"> </span><span style="color: #800080;">2011</span><span style="color: #000000;">, </span><span style="color: #800080;">18</span><span style="color: #000000;">:</span><span style="color: #800080;">44</span><span style="color: #000000;">:</span><span style="color: #800080;">49</span><span style="color: #000000;"><br />
+========================================================================<br />
+00000000000i[ ] reading configuration from bochsrc<br />
+00000000000p[ ] &gt;&gt;PANIC&lt;&lt; </span><span style="color: #008080;">bochsrc:</span><span style="color: #800080;">10</span><span style="color: #000000;">: vgaromimage directive malformed.<br />
+</span><span style="color: #800080;">00000000000e</span><span style="color: #000000;">[CTRL ] notify called, but no bxevent_callback function is registered<br />
+========================================================================<br />
+Bochs is exiting with the following </span><span style="color: #008080;">message:</span><span style="color: #000000;"><br />
+[ ] </span><span style="color: #008080;">bochsrc:</span><span style="color: #800080;">10</span><span style="color: #000000;">: vgaromimage directive malformed.<br />
+========================================================================<br />
+00000000000i[CPU0 ] CPU is </span><span style="color: #0000ff;">in</span><span style="color: #000000;"> real mode (active)<br />
+00000000000i[CPU0 ] CS.d_b = </span><span style="color: #800080;">16</span><span style="color: #000000;"> bit<br />
+00000000000i[CPU0 ] SS.d_b = </span><span style="color: #800080;">16</span><span style="color: #000000;"> bit<br />
+00000000000i[CPU0 ] | EAX=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> EBX=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> ECX=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> EDX=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | ESP=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> EBP=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> ESI=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> EDI=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | IOPL=</span><span style="color: #800080;">0</span><span style="color: #000000;"> id vip vif ac vm rf nt of df if tf sf zf af pf cf<br />
+00000000000i[CPU0 ] | SEG selector base limit G D<br />
+00000000000i[CPU0 ] | SEG sltr(index|ti|rpl) base limit G D<br />
+00000000000i[CPU0 ] | </span><span style="color: #008080;">CS:</span><span style="color: #800080;">0000</span><span style="color: #000000;">( </span><span style="color: #800080;">0000</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">) </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | </span><span style="color: #008080;">DS:</span><span style="color: #800080;">0000</span><span style="color: #000000;">( </span><span style="color: #800080;">0000</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">) </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | </span><span style="color: #008080;">SS:</span><span style="color: #800080;">0000</span><span style="color: #000000;">( </span><span style="color: #800080;">0000</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">) </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | </span><span style="color: #008080;">ES:</span><span style="color: #800080;">0000</span><span style="color: #000000;">( </span><span style="color: #800080;">0000</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">) </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | </span><span style="color: #008080;">FS:</span><span style="color: #800080;">0000</span><span style="color: #000000;">( </span><span style="color: #800080;">0000</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">) </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | </span><span style="color: #008080;">GS:</span><span style="color: #800080;">0000</span><span style="color: #000000;">( </span><span style="color: #800080;">0000</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">| </span><span style="color: #800080;">0</span><span style="color: #000000;">) </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">00000000</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"><br />
+00000000000i[CPU0 ] | EIP=</span><span style="color: #800080;">00000000</span><span style="color: #000000;"> (</span><span style="color: #800080;">00000000</span><span style="color: #000000;">)<br />
+00000000000i[CPU0 ] | CR0=0x00000000 CR2=0x00000000<br />
+00000000000i[CPU0 ] | CR3=0x00000000 CR4=0x00000000<br />
+</span><span style="color: #008080;">bx_dbg_read_linear:</span><span style="color: #000000;"> physical memory read error (phy=0x0000000000000000, lin=0x00000000)<br />
+00000000000i[CTRL ] quit_sim called with exit code </span><span style="color: #800080;">1</span></div>
+</pre>
+</div>
+<ul>
+     <li>Error 3: 运行bochsrc时，出现错误&#8221;ROM: couldn't open ROM image file '/usr/share/bochs/BIOS-bochs-latest'.&#8220;</li>
+</ul>
+<p>　　&nbsp; Solution: 将bochsrc文件中第9行romimage: file=/usr/share/bochs/BIOS-bochs-latest改为</p>
+<p>　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; romimage: file=/usr/local/share/bochs/BIOS-bochs-latest #/usr/share/bochs/BIOS-bochs-latest</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 具体错误输出如下：</p>
+<div class="cnblogs_code">
+<pre><div><span style="color: #000000;">Event </span><span style="color: #008080;">type:</span><span style="color: #000000;"> PANIC<br />
+</span><span style="color: #008080;">Device:</span><span style="color: #000000;"> [MEM0 ]<br />
+</span><span style="color: #008080;">Message:</span><span style="color: #000000;"> </span><span style="color: #008080;">ROM:</span><span style="color: #000000;"> couldn</span><span style="color: #800000;">'</span><span style="color: #800000;">t open ROM image file </span><span style="color: #800000;">'</span><span style="color: #000000;">/usr/share/bochs/BIOS-bochs-latest</span><span style="color: #800000;">'</span><span style="color: #800000;">.<br />
+<br />
+A PANIC has occurred. Do you want to:<br />
+cont - continue execution<br />
+alwayscont - continue execution, and don</span><span style="color: #800000;">'</span><span style="color: #000000;">t ask again.<br />
+This affects only PANIC events from device [MEM0 ]<br />
+die - stop execution now<br />
+abort - dump core<br />
+debug - continue </span><span style="color: #0000ff;">and</span><span style="color: #000000;"> return to bochs debugger<br />
+Choose one of the actions </span><span style="color: #008080;">above:</span><span style="color: #000000;"> [die]</span></div>
+</pre>
+</div>
+<ul>
+     <li>Error 4: 运行bochsrc时，出现关于Keymap的错误，见下图，</li>
+</ul>
+<p><img alt="error-keymap" src="http://pic002.cnblogs.com/images/2011/285555/2011061115290715.png" height="160" width="424" /></p>
+<p>　　 Solution: 将bochsrc文件中最后一行keyboard_mapping: enabled=1, map=/usr/share/bochs/keymaps/x11-pc-us.map改为</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　keyboard_mapping: enabled=1, map=/usr/local/share/bochs/keymaps/x11-pc-us.map #/usr/share/bochs/keymaps　　&nbsp; </p>
+<p>&nbsp; 　　　　　&nbsp; /x11-pc-us.map</p>
+<ul>
+     <li>Error 5: 调试引导扇区程序是，出现错误&#8221;syntax error at 'dump_cpu'&#8220;</li>
+</ul>
+<p>　　&nbsp; Solution: None. bochs 2.3.5 以上的版本没有dump_cpu了,可以用r，fp，mmx，sse，dreg，sreg，creg命令代替。</p>
+<p><span style="font-size: 16px;"><strong>附录</strong></span></p>
+<p><img src="http://pic002.cnblogs.com/images/2011/285555/2011061116210068.png" height="416" width="505" alt="" /></p>
+<p>&nbsp;</p>
+<p><span style="color: red; font-size: 12pt; ">希望大家多多指正，如有转载，请注明出处</span><a target="_blank" href="http://www.cnblogs.com/JohnShao/archive/2011/10/23/2221565.html"><span style="font-size: 12pt; ">http://www.cnblogs.com/JohnShao/archive/2011/10/23/2221565.html</span></a><span style="font-size: 12pt; ">。</span></p>
+<div>
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2011-10-23 00:45</span> <a href='http://www.cnblogs.com/JohnShao/'>John Shao</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="http://i.cnblogs.com/EditPosts.aspx?postid=2221565" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2221565);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=86001,cb_entryId=2221565,cb_blogApp=currentBlogApp,cb_blogUserGuid='7d874b3e-de55-e011-a53f-842b2b196315',cb_entryCreatedDate='2011/10/23 0:45:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='ad_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='ad_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2016 John Shao
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+出现vgaromimage directive malformed.  
+
+2011-12-05 23:12:14|  分类： Bochs |举报|字号 订阅
+    
+  下载LOFTER我的照片书  |
+
+来源：http://www.oldlinux.org/oldlinux/viewthread.php?tid=12204
+
+ 双击bochsrc-fda.bxrc启动bochs，出现:
+
+bochsrc-fda.bxrc:36: vgaromimage directive malformed.
+
+00000000000i[CTRL ] quit_sim called with exit code 1
+
+然后就失败了.
+
+Bochs 2.4.x 对*.bxrc文件中的一些配置语法进行了修改。而linux包中携带的brrc文件是用于2.2.x -- 2.3.x 版的，因此需要对bxrc文件进行修改。
+
+修改应该很简单，可参考2.4.x自带例子的bxrc文件。
+
+修改如下：
+
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest 

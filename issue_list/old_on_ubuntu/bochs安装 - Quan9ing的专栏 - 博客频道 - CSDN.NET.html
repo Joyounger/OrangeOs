@@ -1,0 +1,1288 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>bochs安装 - Quan9ing的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="1、去http://pkgs.repoforge.org/clamav/现在安装包wget http://pkgs.repoforge.org/clamav/clamav-db-0.98.4-1.el6.rf.x86_64.rpmwget http://pkgs.repoforge.org/clamav/clamav-0.98.4-1.el6.rf.x86_64.rpmwget" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/default/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/Quan9ing/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/quan9ing007">Quan9ing的专栏</a></h2>
+            <h3>技术改变生活</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/quan9ing007?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/quan9ing007?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/quan9ing007/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "Quan9ing";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/quan9ing007";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://ask.csdn.net/subjects/9">
+<font color=blue>【专家问答】韦玮：Python基础编程实战专题</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://lib.csdn.net/base/swift/resource">
+<font color=red>【知识库】Swift资源大集合
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/csdnproduct/article/details/51668917">
+<font color=blue>【公告】博客新皮肤上线啦</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://bbs.csdn.net/topics/391967935">
+<font color=red>CSDN福利第二期
+</font></a>
+&nbsp;&nbsp;&nbsp;
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/quan9ing007/article/details/21466233">
+        bochs安装            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">操作系统</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2014-03-20 10:37</span>
+            <span class="link_view" title="阅读次数">985人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('bochs安装','21466233');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(21466233,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            var lib = eval("("+$("#lib").attr("value")+")");
+            var html = "";
+            if (lib.err == 0) {
+                $.each(lib.data, function (i) {
+                    var obj = lib.data[i];
+                    //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                    html += ' <a href="' + obj.url + '" target="_blank">';
+                    html += ' <img src="' + obj.logo + '">';
+                    html += ' <em><b>' + obj.name + '</b></em>';
+                    html += ' </a>';
+                });
+                if (html != "") {
+                    setTimeout(function () {
+                        $("#lib").html(html);
+                        /*
+                        var testhtml = "";
+                        testhtml += '<a href="#">';
+                        testhtml += '<img src="http://img.knowledge.csdn.net/upload/base/1455589744328_328.jpg">';
+                        testhtml += '<em>Android知识库</em>';
+                        testhtml += '</a>';
+                        $(".embody_c").html(testhtml);
+                        */
+                        $("#embody").show();
+                    }, 100);
+                }
+            }          
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('2110391','Quan9ing','top','21466233');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">操作系统<em>（2）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/Quan9ing/article/category/2110391"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_2110391">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p>问题一：<br>
+</p>
+<p>gtk_enh_dbg_osdep.cc:20:21: 致命错误： gtk/gtk.h：没有那个文件或目录</p>
+<p>编译中断。</p>
+<p>解决方法：</p>
+<p><span style="font-size:16px"><span style="color:#0000ff">sudo apt-get install libgtk2.0-dev</span></span></p>
+<p>sudo make dist-clean</p>
+<p>sudo ./configure --enable-debugger --enable-disasm</p>
+<p>sudo make <br>
+</p>
+<p>cp bochs bochsdbg</p>
+<p>sudo make install</p>
+<br>
+<p><br>
+</p>
+<p>参考资料：</p>
+<span style="font-size:32px"><a target="_blank" target="_blank" href="http://m.oschina.net/blog/56095">bochs安装问题与解决方法：http://m.oschina.net/blog/56095</a></span><br>
+<p></p>
+<div class="TextContent">
+<p><span style="font-size:16px">ar vxzf bochs-2.4.5.tar.gz&nbsp;<br>
+cd bochs-2.4.5<br>
+./configure --enable-debugger&nbsp;&nbsp; --enable-disasm<br>
+make&nbsp;<br>
+sudo make install</span></p>
+<p><span style="font-size:16px">结果出错，解决的办法是：</span></p>
+<p><span style="font-size:16px"><span style="color:#ff0000">问题1:</span>&nbsp;<br>
+&nbsp;&nbsp; checking for C compiler default output file name… configure: error: C compiler cannot create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; executables<br>
+&nbsp;&nbsp; 解决办法：<br>
+&nbsp;&nbsp; [thornbird@thornbird bochs-2.4]$&nbsp;<span style="color:#0000ff">sudo apt-get install libc6-dev</span>&nbsp;<br>
+<span style="color:#ff0000">问题2:</span>&nbsp;<br>
+&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp; checking how to run the C&#43;&#43; preprocessor... /lib/cpp<br>
+&nbsp;&nbsp; configure: error: C&#43;&#43; preprocessor &quot;/lib/cpp&quot; fails sanity check<br>
+&nbsp;&nbsp; See `config.log' for more details.<br>
+&nbsp;&nbsp; 解决方法：<br>
+&nbsp;&nbsp; [thornbird@thornbird bochs-2.4]$&nbsp;<span style="color:#0000ff">sudo apt-get install build-essential</span></span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;<span style="color:#ff0000">问题3:</span>&nbsp;<br>
+&nbsp;&nbsp; [thornbird@thornbird bochs-2.4]$ make<br>
+&nbsp;&nbsp; make: *** 没有指明目标并且找不到 makefile.停止。<br>
+&nbsp;&nbsp; 解决方法：<br>
+&nbsp;&nbsp; [thornbird@thornbird bochs-2.4]$&nbsp;<span style="color:#0000ff">sudo apt-get install build-essential</span></span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp;<span style="color:#ff0000">问题4:</span>&nbsp;<br>
+&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp; checking for wxWidgets library version...&nbsp;<br>
+&nbsp;&nbsp; checking for default gui on this platform... x11<br>
+&nbsp;&nbsp; ERROR: X windows gui was selected, but X windows libraries were not found.</span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp; 解决方法: 配置的时候加上<span style="color:#0000ff">&quot;--with-nogui</span>&nbsp;&quot;<br>
+&nbsp;&nbsp; 或者改成:[thornbird@thornbird bochs-2.4]$<span style="color:#0000ff">sudo apt-get install xorg-dev</span>&nbsp;<span style="color:#ff0000">(建议)</span></span></p>
+<p><span style="color:#ff0000; font-size:16px">问题5：</span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp; Package gtk&#43;-2.0 was not found in the pkg-config search path.Perhaps you should add the directory&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; containing&nbsp;&nbsp;&nbsp; `gtk&#43;-2.0.pc'to the PKG_CONFIG_PATH environment variableNo package 'gtk&#43;-2.0' foundERROR:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pkg-config
+ was not found, or unable to access the gtk&#43;-2.0 package.Install pkg-config and&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gtk&#43; development package,or disable the gui debugger, or the wxWidgets display library (whichever is&nbsp;&nbsp;&nbsp; being used).</span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp; 解决方法：</span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp; [thornbird@thornbird bochs-2.4]$<span style="color:#0000ff">sudo apt-get install libgtk2.0-dev</span></span></p>
+<p><span style="color:#0000ff; font-size:16px">&nbsp;&nbsp;<span style="color:#ff0000">问题6：</span></span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp; install: 无法获取&quot;./bochsdbg&quot; 的文件状态(stat): 没有该文件或目录</span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp; 解决办法：需要在make后，将bochs拷贝一份，命名为bochsdbg</span></p>
+<p><span style="font-size:16px">&nbsp;&nbsp;&nbsp; [thornbird@thornbird bochs-2.4]$&nbsp;<span style="color:#0000ff">cp bochs bochsdbg</span></span></p>
+</div>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p></p>
+<p><span style="font-size:32px"><a target="_blank" target="_blank" href="http://hi.baidu.com/zeropointer_/item/57d8d20a38afcb90a3df43d6">http://hi.baidu.com/zeropointer_/item/57d8d20a38afcb90a3df43d6</a></span><br>
+</p>
+<p>sudo apt-get update<br>
+</p>
+<p>sudo apt-get install <tt>build-essential</tt></p>
+<p>sudo apt-get install xorg-dev</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p></p>
+<p>可参考：</p>
+<p><a target="_blank" target="_blank" href="http://blog.csdn.net/xiajian2010/article/details/9446465">http://blog.csdn.net/xiajian2010/article/details/9446465</a></p>
+<p><a target="_blank" target="_blank" href="http://blog.csdn.net/ljl1603/article/details/5873980">http://blog.csdn.net/ljl1603/article/details/5873980</a><br>
+</p>
+<p></p>
+<p><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">安装</span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">bochs之前做一些准备工作<br style="word-wrap:break-word; line-height:normal">
+sudo apt-get install build-essential<br style="word-wrap:break-word; line-height:normal">
+sudo apt-get install xorg-dev<br style="word-wrap:break-word; line-height:normal">
+sudo apt-get install bison<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#f00000; word-wrap:break-word">一.安装bochs</span><br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">1. 解包</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tar xvfz bochs-20100502.tar.gz<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">2.进入bochs-20100502目录</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;cd bochs-20100502<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">3. 配置</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;编译两份不同的配置的版本<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#008000; word-wrap:break-word">第一个的版本为使用bochs自带的内部调试器</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;./configure --prefix=/opt/bochs/debug --enable-plugins --enable-debugger --enable- &nbsp; &nbsp; &nbsp; &nbsp;disasm<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;注释：<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* --prefix=/opt/bochs/debug 软件将被安装到哪个目录下<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* --enable-plugins 是必须要的<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* --enable-debugger 是打开bochs的自带调试器<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* --enbale-disasm 允许反汇编</span></span></span></p>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+</span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><span style="color:#0000f0; word-wrap:break-word"><strong style="word-wrap:break-word">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</strong></span></span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word; border-collapse:collapse; line-height:22px">如果configure过程中出现这个问题：</span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word; border-collapse:collapse; line-height:22px"><span style="font-family:Verdana,Arial,Tahoma; font-size:12px; word-wrap:break-word; border-collapse:separate; line-height:normal"><em style="word-wrap:break-word">checking
+ for gtk&#43;-2.0 &gt;= 2.0.0... Package gtk&#43;-2.0 was not found in the pkg-config search path. Perhaps you should add the directory containing `gtk&#43;-2.0.pc' to the PKG_CONFIG_PATH environment variable No package 'gtk&#43;-2.0' found<br style="word-wrap:break-word">
+configure: error: Library requirements (gtk&#43;-2.0 &gt;= 2.0.0) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them.</em></span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word; border-collapse:collapse; line-height:22px"><span style="font-family:Verdana,Arial,Tahoma; font-size:12px; word-wrap:break-word; border-collapse:separate; line-height:normal"><em style="word-wrap:break-word"><br style="word-wrap:break-word">
+</em></span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word; border-collapse:collapse; line-height:22px"><span style="font-family:Verdana,Arial,Tahoma; font-size:12px; word-wrap:break-word; border-collapse:separate; line-height:normal"><em style="word-wrap:break-word"><br style="word-wrap:break-word">
+</em></span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word; border-collapse:collapse; line-height:22px"><span style="color:#f00000; word-wrap:break-word">解决办法为：安装</span></span></span><span style="font-family:Verdana,Arial,Tahoma; font-size:12px; word-wrap:break-word; line-height:normal"><span style="color:#f00000; word-wrap:break-word">libgtk2.0-dev</span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:Verdana,Arial,Tahoma; font-size:12px; word-wrap:break-word; line-height:normal"><span style="color:#f00000; word-wrap:break-word">sudo apt-get install&nbsp;</span></span><span style="font-family:Verdana,Arial,Tahoma; font-size:12px; word-wrap:break-word; line-height:normal"><span style="color:#f00000; word-wrap:break-word">libgtk2.0-dev</span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><span style="color:#0000f0; word-wrap:break-word"><strong style="word-wrap:break-word">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</strong></span></span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+</span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+<span style="color:#0000f0; word-wrap:break-word">4. 编译</span><br style="word-wrap:break-word; line-height:normal">
+</span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;make</span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">5. 安装</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;sudo make install<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">6.加一个符号连接</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;sudo ln -s /opt/bochs/debug/</span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">bin</span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">/bochs
+ /usr/bin/bochsdbg</span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+</span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+<span style="color:#008000; word-wrap:break-word">第二个版本为使用</span></span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><span style="color:#008000; word-wrap:break-word">gdb</span></span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><span style="color:#008000; word-wrap:break-word">-stub的版本</span></span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+<span style="color:#0000f0; word-wrap:break-word">1. 清理</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;在配置第二个版本之前，需要把刚才编译的东西清理掉，输入以下</span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">命令</span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">：<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;make clean<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">2. 配置</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;然后配置，配置命令为<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;./configure --prefix=/opt/bochs/gdbstub --enable-plugins --enable-disasm --enable- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gdb-stub<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;配置注释：<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;* --enable-gdb-stub 打开gdb stub支持<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;* 其他选项同上，注意这个不同版本会安装到不同的目录下。<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">3. 编译</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;make<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">4. 安装</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;sudo make install<br style="word-wrap:break-word; line-height:normal">
+这样bochs使用外部调试器gdb的版本就编译好了。<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#0000f0; word-wrap:break-word">5.建一个符号链接</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;sudo ln -s /opt/bochs/gdbstub/bin/bochs &nbsp;/usr/bin/bochs</span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+</span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+<span style="color:#f00000; word-wrap:break-word">二. 编译linux 0.11&nbsp;</span></span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><span style="color:#f00000; word-wrap:break-word">内核</span></span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><span style="color:#f00000; word-wrap:break-word"><br style="word-wrap:break-word; line-height:normal">
+</span>linux 0.11源码文件在linux-0.11-081030.tar.gz中，进入目录解压后的目录linux-0.11中<br style="word-wrap:break-word; line-height:normal">
+1.&nbsp;</span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">ubuntu</span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">&nbsp;8.04
+ gcc 版本为4.2.4,但是GCC4.x 默认检查stack安全，会导致出现__stack_chk_fail错误，所以在<span style="color:#0000f0; word-wrap:break-word">编译之前应先修改Makefile:</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; linux-0.11/Makefile<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; linux-0.11/</span></span><span class="t_tag" style="word-wrap:break-word; line-height:normal; border-bottom:1px solid #ff0000; white-space:nowrap"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">kernel</span></span></span><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">/Makefile<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; linux-0.11/kernel/chr_dev/Makefile<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; linux-0.11/kernel/blk_dev/Makefile<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; linux-0.11/fs/Makefile<br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp;<span style="color:#008000; word-wrap:break-word">&nbsp; 在 CFLAGS参数中加入-fno-stack-protector</span></span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+<span style="color:#0000f0; word-wrap:break-word">2. 安装 as86 ld86</span><br style="word-wrap:break-word; line-height:normal">
+&nbsp;&nbsp; &nbsp;sudo apt-get install bin86&nbsp;</span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+<span style="color:#0000f0; word-wrap:break-word">3.编译 make</span>&nbsp;</span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">&nbsp;&nbsp; &nbsp;(编译不成功记得在下次编译前
+ make clean 一下)，如果编译成功则在linux-0.11目录下生成 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Image</span></span></span></div>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; line-height:22px; border-collapse:collapse; font-family:song,Verdana"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+三. 配置bochs<br style="word-wrap:break-word; line-height:normal">
+这是bochs-2.3.5的配置文件<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br style="word-wrap:break-word; line-height:normal">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; romimage: file=$BXSHARE/BIOS-bochs-latest&nbsp; &nbsp;<br style="word-wrap:break-word; line-height:normal">
+megs: 16&nbsp;<br style="word-wrap:break-word; line-height:normal">
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest<br style="word-wrap:break-word; line-height:normal">
+vga: extension=vbe&nbsp;<br style="word-wrap:break-word; line-height:normal">
+floppya: 1_44=&quot;Image&quot;, status=inserted&nbsp;<br style="word-wrap:break-word; line-height:normal">
+floppyb: 1_44=diska.img, status=inserted&nbsp;<br style="word-wrap:break-word; line-height:normal">
+ata0-master: type=disk, path=&quot;hdc-0.11-new.img&quot;, mode=flat,cylinders=410, heads=16, spt=38&nbsp;<br style="word-wrap:break-word; line-height:normal">
+boot: a&nbsp;<br style="word-wrap:break-word; line-height:normal">
+log: bochsout.txt<br style="word-wrap:break-word; line-height:normal">
+parport1: enable=0&nbsp;<br style="word-wrap:break-word; line-height:normal">
+vga_update_interval: 300000&nbsp;<br style="word-wrap:break-word; line-height:normal">
+keyboard_serial_delay: 200&nbsp;<br style="word-wrap:break-word; line-height:normal">
+floppy_command_delay: 50000&nbsp;<br style="word-wrap:break-word; line-height:normal">
+ips: 4000000&nbsp;<br style="word-wrap:break-word; line-height:normal">
+mouse: enabled=0&nbsp;<br style="word-wrap:break-word; line-height:normal">
+private_colormap: enabled=0&nbsp;<br style="word-wrap:break-word; line-height:normal">
+fullscreen: enabled=0<br style="word-wrap:break-word; line-height:normal">
+screenmode: name=&quot;sample&quot;<br style="word-wrap:break-word; line-height:normal">
+<span style="color:#f00000; word-wrap:break-word">(注：如果编译内核不成功且只是想启动bochs,看一下linux 0.11 界面的话，可以直接把上述配置的boot:a,改为boot:c)</span></span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+运行bochs<br style="word-wrap:break-word; line-height:normal">
+bochs -f bochsrc.bxrc<br style="word-wrap:break-word; line-height:normal">
+注：用gdb 调试时出现“system bios must end at 0xffff”，可把*.bxrc romimage 一行中的address=0f0000 去掉</span></span></span></div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word"><br style="word-wrap:break-word">
+#romimage: file=$BXSHARE/BIOS-bochs-latest, address=0xf0000<br style="word-wrap:break-word; line-height:normal">
+romimage: file=$BXSHARE/BIOS-bochs-latest</span></span></span></div>
+<div style="word-wrap:break-word"><br>
+</div>
+<div style="word-wrap:break-word"><br>
+</div>
+<div style="word-wrap:break-word"><span style="font-family:song,Verdana; word-wrap:break-word; line-height:22px; border-collapse:collapse"><span style="font-family:幼圆; word-wrap:break-word"><span style="font-size:14px; word-wrap:break-word">附：linux 0.11</span></span></span>&nbsp;
+<a target="_blank" target="_blank" href="http://dipplum.com/linux-0.11-lab/linux-0.11-060618-gcc4.tar.gz">
+http://dipplum.com/linux-0.11-lab/linux-0.11-060618-gcc4.tar.gz</a></div>
+<div style="word-wrap:break-word">&nbsp;&nbsp;&nbsp;&nbsp; 关于在unbuntu下安装0.11般linux 的参考</div>
+<div style="word-wrap:break-word">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://oldlinux.org/oldlinux/viewthread.php?tid=3850&amp;extra=page%3D1</div>
+<div style="word-wrap:break-word">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.seebit.org/2007/12/compile-linux011-in-ubuntu/</div>
+<div style="word-wrap:break-word"><br>
+</div>
+遇到的问题：把#elif 该为#else<br>
+<br>
+<br>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.14-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="21466233" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/quan9ing007/article/details/21189807';">上一篇</span><a href="/quan9ing007/article/details/21189807" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">U盘实现《自己动手写操作系统》</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/quan9ing007/article/details/21635771';">下一篇</span><a href="/quan9ing007/article/details/21635771" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">Bochs使用[练习自己动手写操作系统]</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('2110391','Quan9ing','foot','21466233');">操作系统<em>（2）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('2110391', 'Quan9ing','foot','21466233');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/Quan9ing/svc/GetSuggestContent/21466233",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "21466233",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'bochs安装' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '21466233';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/Quan9ing/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/Quan9ing" target="_blank">
+    <img src="http://avatar.csdn.net/B/8/1/1_quan9ing.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/Quan9ing" class="user_name" target="_blank">Quan9ing</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=Quan9ing','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>78036次</span></li>
+    <li>积分：<span>1242</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog4.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：1242 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>40篇</span></li>
+    <li>转载：<span>61篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>17条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/Quan9ing/article/category/1166983" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux 應用基礎</a><span>(19)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1167178" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Windows 應用基礎</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1175093" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">軟件使用心得</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1273849" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C/C++</a><span>(17)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1276658" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">TCP /  IP</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1276659" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">VC++</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1276661" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux 內核</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1276662" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">算法與數據結構</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1276666" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Windows 編程</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1276668" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux 編程</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1282396" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C++ Primer 学习笔记</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1285813" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">MFC</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1288944" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网络编程/Windows</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1309070" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1653385" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网络工程</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1711559" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">方法论</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1726167" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">算法</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1726235" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">心情</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1774571" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">学术科研</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/1798811" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">好书推荐</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2110391" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">操作系统</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2274859" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">理论学习</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2293797" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Python</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2562935" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Git</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2577755" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">MySQL</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2593043" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">VIM</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2611389" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">杂</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/Quan9ing/article/category/2611391" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">杂事</a><span>(0)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/Quan9ing/article/month/2014/10">2014年10月</a><span>(1)</span></li><li><a href="/Quan9ing/article/month/2014/09">2014年09月</a><span>(13)</span></li><li><a href="/Quan9ing/article/month/2014/06">2014年06月</a><span>(5)</span></li><li><a href="/Quan9ing/article/month/2014/05">2014年05月</a><span>(5)</span></li><li><a href="/Quan9ing/article/month/2014/03">2014年03月</a><span>(3)</span></li><li><a href="/Quan9ing/article/month/2013/12">2013年12月</a><span>(12)</span></li><li><a href="/Quan9ing/article/month/2013/11">2013年11月</a><span>(18)</span></li><li><a href="/Quan9ing/article/month/2013/10">2013年10月</a><span>(13)</span></li><li><a href="/Quan9ing/article/month/2013/09">2013年09月</a><span>(1)</span></li><li><a href="/Quan9ing/article/month/2013/08">2013年08月</a><span>(2)</span></li><li><a href="/Quan9ing/article/month/2013/05">2013年05月</a><span>(1)</span></li><li><a href="/Quan9ing/article/month/2013/04">2013年04月</a><span>(1)</span></li><li><a href="/Quan9ing/article/month/2013/01">2013年01月</a><span>(1)</span></li><li><a href="/Quan9ing/article/month/2012/12">2012年12月</a><span>(13)</span></li><li><a href="/Quan9ing/article/month/2012/11">2012年11月</a><span>(10)</span></li><li><a href="/Quan9ing/article/month/2012/06">2012年06月</a><span>(2)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/quan9ing007/article/details/7661662" title="开机自检出错 error0164 memory size decrease">开机自检出错 error0164 memory size decrease</a><span>(4962)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/14212657" title="vim开启系统剪切板并复制内容到系统剪切板，可以粘贴到网页或其他文档中">vim开启系统剪切板并复制内容到系统剪切板，可以粘贴到网页或其他文档中</a><span>(4212)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8517271" title="不能从仓库里读取组信息。这是您安装树的问题">不能从仓库里读取组信息。这是您安装树的问题</a><span>(3365)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/17410173" title="页眉页脚的制作   论文格式（奇偶页眉不同，页码连续）">页眉页脚的制作   论文格式（奇偶页眉不同，页码连续）</a><span>(2585)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8193542" title="在Windows下安装真实Linux系统的方法“Unable to read package metadata. This may be due to a missing repodata dire”">在Windows下安装真实Linux系统的方法“Unable to read package metadata. This may be due to a missing repodata dire”</a><span>(1969)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8206783" title="fatal error LNK1120: 2 unresolved externals解决办法">fatal error LNK1120: 2 unresolved externals解决办法</a><span>(1659)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8215741" title="win7添加开机自启动项">win7添加开机自启动项</a><span>(1359)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/16801135" title="CMCC-EDU连接上且登录成功但网页无法打开，DNS无法解析">CMCC-EDU连接上且登录成功但网页无法打开，DNS无法解析</a><span>(1299)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/15337369" title="word如何删除尾注并自动重新编号">word如何删除尾注并自动重新编号</a><span>(1148)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/14162465" title="ubuntu 安装福昕阅读器(FoxitReader)     迅雷  cajviewer">ubuntu 安装福昕阅读器(FoxitReader)     迅雷  cajviewer</a><span>(1133)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/quan9ing007/article/details/21189807" title="U盘实现《自己动手写操作系统》">U盘实现《自己动手写操作系统》</a><span>(3)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8273077" title="C/C+语言struct深层探索">C/C+语言struct深层探索</a><span>(2)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8517271" title="不能从仓库里读取组信息。这是您安装树的问题">不能从仓库里读取组信息。这是您安装树的问题</a><span>(2)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8161794" title="C++格式輸出控制 setiosflags()的激活與取消">C++格式輸出控制 setiosflags()的激活與取消</a><span>(2)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/12624665" title="Ubuntu卸载电信协同拨号器">Ubuntu卸载电信协同拨号器</a><span>(2)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/39433245" title="mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database &#39;test&#39;">mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database &#39;test&#39;</a><span>(1)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/12870737" title="linux命令行重启ibus输入法">linux命令行重启ibus输入法</a><span>(1)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8191434" title="《C++ Primer 中文版》211頁習題7.16 “編寫程序使之可以接受本節介紹的命令行選項，并輸出傳遞給main的實參的值”">《C++ Primer 中文版》211頁習題7.16 “編寫程序使之可以接受本節介紹的命令行選項，并輸出傳遞給main的實參的值”</a><span>(0)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8191224" title="《C++ Primer 中文版》211頁習題7.15 “編寫一個主函數main，使用兩個值作為實參，并輸出它們的和">《C++ Primer 中文版》211頁習題7.15 “編寫一個主函數main，使用兩個值作為實參，并輸出它們的和</a><span>(0)</span>
+</li>
+<li>
+<a href="/quan9ing007/article/details/8147822" title="C++ signed和unsigned的比较 作者weihe6666">C++ signed和unsigned的比较 作者weihe6666</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/sahadev_/article/details/51654668" target="_blank">*Android官方开发文档Training系列课程中文版：网络操作之XML解析</a></li>
+<li><a href="http://blog.csdn.net/u012260293/article/details/50395602" 
+target="_blank">*Delta - 轻量级JavaWeb框架使用文档</a></li>
+<li><a href="http://blog.csdn.net/hiyun9/article/details/51602428" 
+target="_blank">*Nginx正反向代理、负载均衡等功能实现配置</a></li>
+<li><a href="http://blog.csdn.net/qianweifeng123/article/details/51555998" target="_blank">* 浅析ZeroMQ工作原理及其特点</a></li>
+<li><a 
+
+href="http://blog.csdn.net/qq_23547831/article/details/51289456"target="_blank">*android源码解析（十九）-->Dialog加载绘制流程</a></li>
+<li><a href="http://blog.csdn.net/mickjoust/article/details/51646658" 
+target="_blank">*Spring Boot 实践折腾记（三）：三板斧，Spring Boot下使用Mybatis</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/quan9ing007/article/details/12624665#comments">Ubuntu卸载电信协同拨号器</a>
+    <p style="margin:0px;"><a href="/hjyhujunyuan" class="user_name">hjyhujunyuan</a>:
+我安装了之后也是不能用，电信又不更新linux的拨号器，只有卸载了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/12624665#comments">Ubuntu卸载电信协同拨号器</a>
+    <p style="margin:0px;"><a href="/hjyhujunyuan" class="user_name">hjyhujunyuan</a>:
+我也是，下载安装了之后不能用，电信就是个小婊砸
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/39433245#comments">mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database &#39;test&#39;</a>
+    <p style="margin:0px;"><a href="/MLANRIVER" class="user_name">MLANRIVER</a>:
+你确认过你有test这个数据库吗
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/21189807#comments">U盘实现《自己动手写操作系统》</a>
+    <p style="margin:0px;"><a href="/preetycai" class="user_name">preetycai</a>:
+@Quan9ing:我没有你做的完善，只是为了试下效果。。。使用NtExplorer操作U盘的数据区...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/12870737#comments">linux命令行重启ibus输入法</a>
+    <p style="margin:0px;"><a href="/Rocloud" class="user_name">Rocloud</a>:
+学习学习ibus的知识，已经拜读
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/21226873#comments">会声会影x5注册机下载地址（亲测可用2014年3月14日）</a>
+    <p style="margin:0px;"><a href="/Quan9ing" class="user_name">Quan9ing</a>:
+@Endell:已发！不好意思，回复晚了。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/21226873#comments">U盘实现《自己动手写操作系统》</a>
+    <p style="margin:0px;"><a href="/Quan9ing" class="user_name">Quan9ing</a>:
+@preetycai:兄台，你的方法可以给个链接吗，想学习一下。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/21226873#comments">会声会影x5注册机下载地址（亲测可用2014年3月14日）</a>
+    <p style="margin:0px;"><a href="/Quan9ing" class="user_name">Quan9ing</a>:
+@loochiy:已发！不好意思，回复晚了。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/21226873#comments">会声会影x5注册机下载地址（亲测可用2014年3月14日）</a>
+    <p style="margin:0px;"><a href="/Quan9ing" class="user_name">Quan9ing</a>:
+@zdw2001zdw:已发！不好意思，回复晚了。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/quan9ing007/article/details/21226873#comments">会声会影x5注册机下载地址（亲测可用2014年3月14日）</a>
+    <p style="margin:0px;"><a href="/Quan9ing" class="user_name">Quan9ing</a>:
+@wentyan:已发！不好意思，回复晚了。
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+ </div>   
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1302520"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+</body>
+</html>   
+ 

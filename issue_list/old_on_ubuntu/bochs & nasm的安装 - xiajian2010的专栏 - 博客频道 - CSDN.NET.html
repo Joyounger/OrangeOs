@@ -1,0 +1,1503 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>bochs &amp; nasm的安装 - xiajian2010的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="基于C#的超市收银管理系统前序&#160; &#160; &#160; &#160;一直在忙学习Qt有关的知识，很有幸这学期学习了C#。让我也感觉到了一丝欣慰，欣慰的是感觉好上手啊，学了几天顿时懂了！好多控件的用法好相似，虽然平时上课没有怎么认真听过课，但是好多知识还是理解的差不多，这一点还是挺高兴的！又到了一学期的期末，凡是编程语言这门课，最后肯定少不了课程设计，想来想去还是用C#实现以下自己曾经做过的超市收银管理系统，业务逻辑也不用多" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/dark1/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/xiajian2010/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/xiajian2010">xiajian2010的专栏</a></h2>
+            <h3>来自邪王真眼的召唤</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/xiajian2010?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/xiajian2010?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/xiajian2010/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "xiajian2010";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/xiajian2010";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://ask.csdn.net/subjects/9">
+<font color=blue>【专家问答】韦玮：Python基础编程实战专题</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://lib.csdn.net/base/swift/resource">
+<font color=red>【知识库】Swift资源大集合
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/csdnproduct/article/details/51668917">
+<font color=blue>【公告】博客新皮肤上线啦</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://bbs.csdn.net/topics/391967935">
+<font color=red>CSDN福利第二期
+</font></a>
+&nbsp;&nbsp;&nbsp;
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/xiajian2010/article/details/9446465">
+        bochs &amp; nasm的安装            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/Ubuntu12.04' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">Ubuntu12.04</a><a href='http://www.csdn.net/tag/nasm%e5%ae%89%e8%a3%85' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">nasm安装</a><a href='http://www.csdn.net/tag/bochs%e5%ae%89%e8%a3%85' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">bochs安装</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2013-07-24 15:17</span>
+            <span class="link_view" title="阅读次数">3314人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(15)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('bochs &amp;amp; nasm的安装','9446465');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(9446465,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            var lib = eval("("+$("#lib").attr("value")+")");
+            var html = "";
+            if (lib.err == 0) {
+                $.each(lib.data, function (i) {
+                    var obj = lib.data[i];
+                    //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                    html += ' <a href="' + obj.url + '" target="_blank">';
+                    html += ' <img src="' + obj.logo + '">';
+                    html += ' <em><b>' + obj.name + '</b></em>';
+                    html += ' </a>';
+                });
+                if (html != "") {
+                    setTimeout(function () {
+                        $("#lib").html(html);
+                        /*
+                        var testhtml = "";
+                        testhtml += '<a href="#">';
+                        testhtml += '<img src="http://img.knowledge.csdn.net/upload/base/1455589744328_328.jpg">';
+                        testhtml += '<em>Android知识库</em>';
+                        testhtml += '</a>';
+                        $(".embody_c").html(testhtml);
+                        */
+                        $("#embody").show();
+                    }, 100);
+                }
+            }          
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('1521319','xiajian2010','top','9446465');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">软件安装<em>（26）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/xiajian2010/article/category/1521319"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1521319">                            
+                            </ul>
+                        </div>
+                    </label>                    
+                    <label  onclick="GetCategoryArticles('1521377','xiajian2010','top','9446465');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">学习笔记<em>（26）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/xiajian2010/article/category/1521377"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1521377">                            
+                            </ul>
+                        </div>
+                    </label>                    
+                    <label  onclick="GetCategoryArticles('1544033','xiajian2010','top','9446465');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">经验类<em>（58）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/xiajian2010/article/category/1544033"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1544033">                            
+                            </ul>
+                        </div>
+                    </label>                    
+                    <label  onclick="GetCategoryArticles('1544063','xiajian2010','top','9446465');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">Linux<em>（32）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/xiajian2010/article/category/1544063"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1544063">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<h1><span style="font-family:Arial; font-size:18px">缘起</span></h1>
+<p><span style="font-family:Arial; font-size:18px">最近看《Orange's 一个操作系统的实现》,需要使用使用bochs工具和nasm工具,这两个工具在Ubuntu下可以使用dpkg或者更高级的apt-get来安装:sudo apt-get install nasm&nbsp; &nbsp; &nbsp; sudo apt-get install &nbsp;vgabios bochs bochs-x bximage(不能调试)</span></p>
+<p><span style="font-family:Arial; font-size:18px">但是有时候尝试一下使用源代码编译也是一个不错的注意：</span></p>
+<h1><strong><span style="font-family:Arial; font-size:18px">编译nasm</span></strong></h1>
+<p><span style="font-family:Arial; font-size:18px">1.从官网(<a target="_blank" target="_blank" href="http://sourceforge.net/projects/nasm/files/nasm%20sources/">http://sourceforge.net/projects/nasm/files/nasm%20sources/</a>)上下载nasm的源码.</span></p>
+<p><span style="font-family:Arial; font-size:18px">2. tar -xvf &nbsp;nasm-2.07.tar.gz</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp; &nbsp; cd nasm-2.07</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp; &nbsp; ./configure</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp; &nbsp; make</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp; &nbsp; sudo make install</span></p>
+<h1><strong><span style="font-family:Arial; font-size:18px">编译bochs</span></strong></h1>
+<p><span style="font-family:Arial; font-size:18px">由于开始的时候对bochs使用的依赖项不是很熟悉，犯了很多的错误，总的来说步骤是</span></p>
+<p><span style="font-family:Arial; font-size:18px">1,从官网上下载源码（<a target="_blank" target="_blank" href="http://sourceforge.net/projects/bochs/files/bochs/">http://sourceforge.net/projects/bochs/files/bochs/</a>）</span></p>
+<p><span style="font-family:Arial; font-size:18px">2. 确保安装编译前的依赖项</span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo apt-get install build-essential<span style="color:rgb(51,51,51)"><span style="line-height:25px">(gcc,make基本工具支持,注意bochs是用C&#43;&#43;写的,可能需要安装g&#43;&#43;-sudo apt-get install g&#43;&#43;)</span></span></span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo apt-get install libx11-dev,</span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo apt-get install libxrandr-dev,</span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo apt-get install xorg-dev(x window的图形的支持),</span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo apt-get install libgtk2.0-dev</span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo apt-get install vgabios&nbsp;</span></p>
+<p><span style="font-family:Arial; font-size:18px">3. 编译安装</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp;tar -xvf&nbsp;&nbsp;bochs-2.6.2.tar.gz</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp;cd bochs-2.6.2</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp;./configure --with-x11 --enable-debugger --enable-disasm&nbsp;</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp;make</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp;sudo make install</span></p>
+<p><span style="font-family:Arial; font-size:18px">&nbsp;make clean(清除编译中产生的文件,例如*.o文件之类的,如果放着不管的话，很占空间)</span></p>
+<p><span style="font-family:Arial; font-size:18px">备注：大概隔了2-3个月后，在使用bochs遇到了一些问题，再来看自己的写的博客时，感觉写得好烂，而且不全。bochs的安装配置很有多,通过命令./configure -h 可以查看，以下列出一些可选的特性：</span></p>
+<p><span style="font-family:Arial; font-size:18px">Optional Features:<br>
+&nbsp; --disable-option-checking &nbsp;ignore unrecognized --enable/--with options<br>
+&nbsp; --disable-FEATURE &nbsp; &nbsp; &nbsp; do not include FEATURE (same as --enable-FEATURE=no)<br>
+&nbsp; --enable-FEATURE[=ARG] &nbsp;include FEATURE [ARG=yes]<br>
+&nbsp; --enable-static[=PKGS] &nbsp;build static libraries [default=no]<br>
+&nbsp; --enable-shared[=PKGS] &nbsp;build shared libraries [default=yes]<br>
+&nbsp; --enable-fast-install[=PKGS]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; optimize for fast installation [default=yes]<br>
+&nbsp; --disable-libtool-lock &nbsp;avoid locking (might break parallel builds)<br>
+&nbsp; --enable-ltdl-install &nbsp; install libltdl<br>
+&nbsp; --disable-largefile &nbsp; &nbsp; omit support for large files<br>
+&nbsp; --enable-idle-hack &nbsp; &nbsp; &nbsp;use Roland Mainz's idle hack (no)<br>
+&nbsp;<span style="color:#ff0000"> --enable-plugins &nbsp; &nbsp; &nbsp; &nbsp;enable plugin support (no)</span><br>
+&nbsp; --enable-a20-pin &nbsp; &nbsp; &nbsp; &nbsp;compile in support for A20 pin (yes)<br>
+&nbsp; --enable-x86-64 &nbsp; &nbsp; &nbsp; &nbsp; compile in support for x86-64 instructions (no)<br>
+<span style="color:#ff0000">&nbsp; --enable-ne2000 &nbsp; &nbsp; &nbsp; &nbsp; enable NE2000 support (no)</span><br>
+</span></p>
+<p><span style="font-family:Arial; font-size:18px">可上面的这些选项可以看到，bochs的默认安装中还有很多的可选的特性，而且这些特性在默认中没有安装，比如usb 和 e2k之类的，然而在使用bochs时，这些特性可能是需要的，这就需要在configure时自己安装上。比如要安装ne2k插件，从而使得模拟器内的系统可以使用网络，要在 ./configure 后加上&nbsp;<span style="font-family:Arial; font-size:18px"><span style="color:#ff0000">--enable-ne2000&nbsp;</span><span style="color:rgb(255,0,0); font-family:Arial; font-size:18px">&nbsp;--enable-plugins，</span><span style="font-family:Arial; font-size:18px">由于ne2k可能要访问Socket，直接运行时好像不给访问，需要用sudo提升了一下权限。</span></span></span></p>
+<p><span style="font-family:Arial; font-size:18px">从源码种安装是有问题的，比如没有安装(<span style="color:#ff0000">vgabios)</span>参考了资料6，据说是少安装了一个东西：bochs-x以及其他的一些配置什么的，实在太麻烦了。以及出现的是如下的X 界面:</span></p>
+<p><span style="font-family:Arial; font-size:18px"><img src="http://img.blog.csdn.net/20130731103828593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlhamlhbjIwMTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br>
+</span></p>
+<p><span style="font-family:Arial; font-size:18px">所以，我决定尝试rpm安装包(参考7)</span></p>
+<p><span style="font-family:Arial; font-size:18px">1.sudo apg-get install rpm</span></p>
+<p><span style="font-family:Arial; font-size:18px">2.下载rpm安装包</span></p>
+<p><span style="font-family:Arial; font-size:18px">3.rpm -ivh xxx.rpm时,我被一堆依赖库吓到了,算了,我就使用上面编译的好的那个bochs好了.</span></p>
+<p><span style="font-family:Arial; font-size:18px">后来,我发现我安装的实际上是完整的没有问题的。因为半年前曾经尝试着看了《一个操作系统的实现 第二版》那本书的,当时在自己的还用着windows机器上安装了bochs和nasm,在windows下安装bochs和其他window软件一样,就是一直next,next,然后finish,然后就安装好了，windows下的bochs在安装时默认加载的是dlxlinux。</span></p>
+<p><span style="font-family:Arial; font-size:18px">而我在Ubuntu下使用源码安装的bochs,添加了调试功能,需要在虚拟终端中键入一些命令才可以使得bochs继续运行下去:</span></p>
+<p><span style="font-family:Arial; font-size:18px"></span>
+<table width="685" cellpadding="4" cellspacing="0">
+<colgroup><col width="210"><col width="221"><col width="228"></colgroup>
+<tbody>
+<tr valign="TOP">
+<td width="210" style="border-top:1px solid #000000; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0.04in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">行为</span></span></p>
+</td>
+<td width="221" style="border-top:1px solid #000000; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0.04in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">指令</span></span></p>
+</td>
+<td width="228" style="border:1px solid #000000; padding:0.04in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">举例</span></span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">在某个物理地址设置断点</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">baddr</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">B0x30400</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">显示当前所有的断点信息</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">infobreak</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">Infobreak</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px"><span lang="zh-CN">继续单步执行</span>,<span lang="zh-CN">直到遇到断点</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="color:rgb(255,0,0)"><span style="font-family:Arial; font-size:18px">c</span></span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="color:rgb(255,0,0)"><span style="font-family:Arial; font-size:18px">c</span></span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">单步执行</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">s</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">s</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px"><span lang="zh-CN">单步执行</span>(<span lang="zh-CN">遇到函数则跳过</span>)</span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">n</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">n</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px"><br>
+</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px"><br>
+</span></p>
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">查看寄存器信息</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">infocpu</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">r</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">fp</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">sreg</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">creg</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">infocpu</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">r</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">fp</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">sreg</span></p>
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">creg</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">查看堆栈</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">print-stack</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">print-stack</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">查看内存物理地址内容</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">xp/nuf addr</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">xp/40bx 0x9013e</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">查看线性地址内容</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">x/nuf addr</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">x/40bx 0x12e</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">反汇编一段内存</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">ustart end</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">u0x30400 0x3040D</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span lang="zh-CN"><span style="font-family:Arial; font-size:18px">反汇编执行的每一条执行</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">trace-on</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">traceon</span></p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="210" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px"><span lang="zh-CN">每执行一条指令就打印</span>CPU<span lang="zh-CN">信息</span></span></p>
+</td>
+<td width="221" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:none; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">trace-reg</span></p>
+</td>
+<td width="228" style="border-top:none; border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top:0in; padding-bottom:0.04in; padding-left:0.04in; padding-right:0.04in">
+<p class="western" align="CENTER"><span style="font-family:Arial; font-size:18px">trace-regon</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<span style="font-family:Arial; font-size:18px">其中,由于不是很熟悉,我发现c命令挺好使用的,修改了一下bochsrc文件,使用bximage创建了一个image文件,并且从官网上下载一个freedos.img(自己动手写OS中的光盘中提供了相应的freedos.img的),运行c命令,截图如下:</span></p>
+<p><span style="font-family:Arial; font-size:18px"><img src="http://img.blog.csdn.net/20130731105007109?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlhamlhbjIwMTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br>
+</span></p>
+<p><span style="font-family:Arial; font-size:18px">关于《Orange's一个操作系统的实现》中,我使用的bochs的版本是2.6.2,因为安装的文件的路径的问题和作者的不同,书上附录中给出的bochsrc的文件需要进行一定的修改，：</span></p>
+<p><span style="font-family:Arial; font-size:18px">###############################################################<br>
+# Configuration file for Bochs<br>
+###############################################################<br>
+<br>
+# how much memory the emulated machine will have<br>
+megs: 32<br>
+<br>
+# filename of ROM images<br>
+romimage: file=<span style="color:#ff0000">/usr/local/share/bochs/BIOS-bochs-latest</span><br>
+vgaromimage: file=/usr/share/vgabios/vgabios.bin<br>
+<br>
+# what disk images will be used&nbsp;</span></p>
+<p><span style="font-family:Arial; font-size:18px"># bochs可以挂载的软盘好像只有两个,也可以通过bximage创建hard Disk的镜像文件<br>
+floppya: 1_44=a.img, status=inserted<br>
+<br>
+# choose the boot disk.<br>
+boot: floppy<br>
+<br>
+# where do we send log messages?<br>
+log: bochsout.txt<br>
+<br>
+# disable the mouse<br>
+mouse: enabled=0<br>
+<br>
+# enable key mapping, using US layout as default.<br>
+keyboard_mapping: enabled=1, map=<span style="color:#ff0000">/usr/local/share/bochs/keymaps/x11-pc-us.map</span><br>
+</span></p>
+<p><span style="font-family:Arial; font-size:18px">修改的地方使用红色字体标志出来,具体要不要修改bochsrc文件,自己到相关目录下找找看一看,或者使用locate或者find命令,find命令参数太多,而且从直接文件系统中检索的,速度比较的慢。这里推荐使用locate命令,locate命令时从Linux系统所维护的一个数据库中读取的,唯一不好的是文件数据可能不太一致,在检索之前updatedb一下比较好。具体的可以参考一下《鸟哥的Linux私房菜的基础篇》</span></p>
+<p><span style="font-family:Arial; font-size:18px">sudo updatedb</span></p>
+<p><span style="font-family:Arial; font-size:18px">locate&nbsp;vgabios.bin</span></p>
+<p><span style="font-family:Arial; font-size:18px">检索的结果:</span></p>
+<p><span style="font-family:Arial; font-size:18px">/usr/share/vgabios<br>
+/usr/share/doc/vgabios<br>
+/usr/share/doc/vgabios/BUGS<br>
+/usr/share/doc/vgabios/README.gz<br>
+/usr/share/doc/vgabios/TODO<br>
+/usr/share/doc/vgabios/changelog.Debian.gz<br>
+/usr/share/doc/vgabios/copyright<br>
+<span style="background-color:rgb(255,0,0)">/usr/share/vgabios/vgabios.bin</span><br>
+/usr/share/vgabios/vgabios.cirrus.bin<br>
+/usr/share/vgabios/vgabios.cirrus.debug.bin<br>
+/usr/share/vgabios/vgabios.debug.bin<br>
+/usr/share/vgabios/vgabios.qxl.bin<br>
+/usr/share/vgabios/vgabios.qxl.debug.bin<br>
+/usr/share/vgabios/vgabios.stdvga.bin<br>
+/usr/share/vgabios/vgabios.stdvga.debug.bin<br>
+/usr/share/vgabios/vgabios.vmware.bin<br>
+/usr/share/vgabios/vgabios.vmware.debug.bin<br>
+/var/cache/apt/archives/vgabios_0.6c-2ubuntu3_all.deb<br>
+/var/lib/dpkg/info/vgabios.list<br>
+/var/lib/dpkg/info/vgabios.md5sums<br>
+</span></p>
+<h1><strong><span style="font-family:Arial; font-size:18px">出现的问题</span></strong></h1>
+<p><span style="font-family:Arial; font-size:18px">在不知道bochs的依赖项前的出现的问题:</span></p>
+<p><span style="font-family:Arial; font-size:18px">1.x11/xlib.h nosuch file or directory</span></p>
+<p></p>
+<pre style="margin-top:0px; margin-bottom:10px; padding:5px; border:0px; vertical-align:baseline; overflow:auto; width:auto; max-height:600px"><span style="font-family:Arial; font-size:18px">sudo apt-get install libx11-dev.</span></pre>
+<pre style="margin-top:0px; margin-bottom:10px; padding:5px; border:0px; vertical-align:baseline; overflow:auto; width:auto; max-height:600px"><span style="font-family:Arial; font-size:18px">2Compile error: X11/extensions/Xrandr.h: No such file or directory</span></pre>
+<span style="font-family:Arial; font-size:18px"><span style="background-color:rgb(252,252,252)">sudo apt-get &nbsp;install libxrandr-dev</span><br>
+</span>
+<p></p>
+<p><span style="background-color:rgb(252,252,252)"><span style="font-family:Arial; font-size:18px">3.<span style="background-color:rgb(252,252,252)">fatal error: gtk/gtk.h: No such file or directory</span></span></span></p>
+<p><span style="background-color:rgb(252,252,252)"><span style="background-color:rgb(252,252,252)"><span style="font-family:Arial; font-size:18px"><span style="background-color:rgb(252,252,252)">/home/xc-pc/Downloads/bochs-2.6.2/gui/gtk_enh_dbg_osdep.cc:995:
+ undefined reference to `gtk_widget_destroy'</span><br style="background-color:rgb(252,252,252)">
+<span style="background-color:rgb(252,252,252)">collect2: error: ld returned 1 exit status</span><br style="background-color:rgb(252,252,252)">
+<span style="background-color:rgb(252,252,252)">make: *** [bochs] Error 1</span><br>
+</span></span></span></p>
+<p><span style="font-family:Arial; font-size:18px">将<span style="background-color:rgb(252,252,252)">`pkg-config gtk&#43;-2.0 --cflags</span><span style="background-color:rgb(252,252,252)">&nbsp;--lib`添加的到bochs下的Makefile的LIBS变量以及bochs下的gui的下Makefile中的LIBS中</span></span></p>
+<p><span style="background-color:rgb(252,252,252)"><span style="font-family:Arial; font-size:18px">4 吓人的rpm安装依赖包</span></span></p>
+<p><span style="background-color:rgb(252,252,252)"><span style="font-family:Arial; font-size:18px">error: Failed dependencies:<br>
+<span style="white-space:pre"></span>/bin/sh is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libSDL-1.2.so.0 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libX11.so.6 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libXpm.so.4 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libXrandr.so.2 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libasound.so.2 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libasound.so.2(ALSA_0.9) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libasound.so.2(ALSA_0.9.0rc4) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6(GLIBC_2.0) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6(GLIBC_2.1) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6(GLIBC_2.1.3) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6(GLIBC_2.2) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6(GLIBC_2.3) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libc.so.6(GLIBC_2.7) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libdl.so.2 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libgcc_s.so.1 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libgcc_s.so.1(GCC_3.0) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libgcc_s.so.1(GLIBC_2.0) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libltdl.so.7 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libm.so.6 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libm.so.6(GLIBC_2.0) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libncurses.so.5 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libpthread.so.0 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libpthread.so.0(GLIBC_2.0) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libpthread.so.0(GLIBC_2.1) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libpthread.so.0(GLIBC_2.2) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libstdc&#43;&#43;.so.6 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libstdc&#43;&#43;.so.6(CXXABI_1.3) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libstdc&#43;&#43;.so.6(GLIBCXX_3.4) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libwx_base-2.8.so.0 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libwx_base-2.8.so.0(WX_2.8) is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libwx_gtk2_core-2.8.so.0 is needed by bochs-2.6.2-1.i586<br>
+<span style="white-space:pre"></span>libwx_gtk2_core-2.8.so.0(WX_2.8) is needed by bochs-2.6.2-1.i586<br>
+</span></span></p>
+<h1><strong><span style="font-family:Arial; font-size:18px">参考资料</span></strong></h1>
+<p><span style="font-family:Arial; font-size:18px">1.<span style="color:rgb(51,51,51)">Ubuntu 安装 Bochs&nbsp;</span><a target="_blank" target="_blank" href="http://m.oschina.net/blog/56095">http://m.oschina.net/blog/56095</a></span></p>
+<p><span style="font-family:Arial; font-size:18px">2.<span style="color:rgb(58,58,58)">X11/Xlib.h：没有该文件或目录错误</span><a target="_blank" target="_blank" href="http://hi.baidu.com/linzch/item/5726f8e57073a7b42f140bd6">http://hi.baidu.com/linzch/item/5726f8e57073a7b42f140bd6</a></span></p>
+<p><span style="font-family:Arial; font-size:18px">3.<span style="line-height:1.3">X11/Xlib.h not found in Ubuntu</span><a target="_blank" target="_blank" href="http://stackoverflow.com/questions/5299989/x11-xlib-h-not-found-in-ubuntu">http://stackoverflow.com/questions/5299989/x11-xlib-h-not-found-in-ubuntu</a></span></p>
+<p><span style="font-family:Arial; font-size:18px">4.<a target="_blank" target="_blank" href="http://hi.baidu.com/zeropointer_/item/57d8d20a38afcb90a3df43d6">http://hi.baidu.com/zeropointer_/item/57d8d20a38afcb90a3df43d6</a></span></p>
+<p><span style="font-family:Arial; font-size:18px">5.<a target="_blank" target="_blank" href="http://blog.csdn.net/sinzou1/article/details/5903968" style="color:rgb(102,102,102); text-decoration:none; line-height:30px">Linux(ubuntu)安装bochs</a>&nbsp;<a target="_blank" target="_blank" href="http://blog.csdn.net/sinzou1/article/details/5903968">http://blog.csdn.net/sinzou1/article/details/5903968</a></span></p>
+<p><span style="font-family:Arial; font-size:18px">6.</span><span style="color:rgb(102,102,102); font-family:Arial; line-height:30px"><span style="font-size:18px">bochs 2.4.2 ubuntu 安装运行问题《orange's 一个操作系统的实现》第二章 调试篇:</span></span></p>
+<p><a target="_blank" target="_blank" href="http://blog.csdn.net/evil_darker/article/details/5456252" style="font-family:Arial; font-size:18px">http://blog.csdn.net/evil_darker/article/details/5456252</a></p>
+<p></p>
+<p><span style="font-family:Arial; font-size:18px">7.<span style="color:rgb(30,144,255)">如何在Linux上使用Bochs:</span><a target="_blank" target="_blank" href="http://wangcong.org/articles/bochs.html">http://wangcong.org/articles/bochs.html</a></span></p>
+<h1>小结</h1>
+<p><span style="font-size:14px">Orange‘s的那本书估计以后不会看了，虽然只看了前3章而已，原因是有其它的事情要去做，没有时间看。很多时候，我一直以为等有空了，会去做某某事情，也许永远不会有空去做某事，只是在自我安慰而已。</span></p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.11-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="9446465" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>1</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/xiajian2010/article/details/9429037';">上一篇</span><a href="/xiajian2010/article/details/9429037" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">Unix哲学学习笔记</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/xiajian2010/article/details/9625131';">下一篇</span><a href="/xiajian2010/article/details/9625131" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">Ubuntu中在tty终端显示和输入汉字</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1521319','xiajian2010','foot','9446465');">软件安装<em>（26）</em></span>
+                                </label>
+                                <label class="">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1521377','xiajian2010','foot','9446465');">学习笔记<em>（26）</em></span>
+                                </label>
+                                <label class="">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1544033','xiajian2010','foot','9446465');">经验类<em>（58）</em></span>
+                                </label>
+                                <label class="">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1544063','xiajian2010','foot','9446465');">Linux<em>（32）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('1521319', 'xiajian2010','foot','9446465');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/xiajian2010/svc/GetSuggestContent/9446465",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "9446465",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'bochs &amp; nasm的安装' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '9446465';
+    var commentscount = 15;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/xiajian2010/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/xiajian2010" target="_blank">
+    <img src="http://avatar.csdn.net/3/3/1/1_xiajian2010.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/xiajian2010" class="user_name" target="_blank">xiajian2010</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=xiajian2010','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>122839次</span></li>
+    <li>积分：<span>1982</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog4.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：1982 </div>
+        </span>  </li>
+    <li>排名：<span>第13348名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>67篇</span></li>
+    <li>转载：<span>24篇</span></li>
+    <li>译文：<span>6篇</span></li>
+    <li>评论：<span>26条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/xiajian2010/article/category/1302071" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">MFC</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1302072" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C++</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1302073" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">XML</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1521319" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">软件安装</a><span>(27)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1521377" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">学习笔记</a><span>(27)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1537867" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">软件测试</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1538731" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java</a><span>(14)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1539153" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Eclipse插件安装</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1540679" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1544033" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">经验类</a><span>(59)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1544063" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux</a><span>(33)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1552839" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C#</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1552841" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">设计模式</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1554415" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">读书</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1614993" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">英语学习</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1780231" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">算法</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/1808725" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">JVM</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2170235" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">服务器</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2172779" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Perl</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2173033" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Javascript</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2173589" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">PHP</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2175819" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">绘图</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2187337" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">python</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2194659" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Graphviz</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2194963" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">翻译</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2204279" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">github</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2204321" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">vim</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2204323" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">浏览器</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2205235" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ubuntu</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2227195" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">文档工具</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2227569" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">学术研究</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2234333" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">wiki</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2253723" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ruby</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2253725" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">rails</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2253727" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">rubygems</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2253769" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">windows</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2256579" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2262525" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">CGI</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2262577" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">web</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2262579" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">REST</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2268871" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">mysql</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2269397" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">pdf</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2335535" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">xorg</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/xiajian2010/article/category/2335553" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">OpenGL</a><span>(1)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/xiajian2010/article/month/2014/08">2014年08月</a><span>(2)</span></li><li><a href="/xiajian2010/article/month/2014/07">2014年07月</a><span>(2)</span></li><li><a href="/xiajian2010/article/month/2014/06">2014年06月</a><span>(4)</span></li><li><a href="/xiajian2010/article/month/2014/05">2014年05月</a><span>(12)</span></li><li><a href="/xiajian2010/article/month/2014/04">2014年04月</a><span>(16)</span></li><li><a href="/xiajian2010/article/month/2014/03">2014年03月</a><span>(4)</span></li><li><a href="/xiajian2010/article/month/2014/02">2014年02月</a><span>(5)</span></li><li><a href="/xiajian2010/article/month/2013/12">2013年12月</a><span>(7)</span></li><li><a href="/xiajian2010/article/month/2013/11">2013年11月</a><span>(2)</span></li><li><a href="/xiajian2010/article/month/2013/10">2013年10月</a><span>(2)</span></li><li><a href="/xiajian2010/article/month/2013/09">2013年09月</a><span>(5)</span></li><li><a href="/xiajian2010/article/month/2013/08">2013年08月</a><span>(29)</span></li><li><a href="/xiajian2010/article/month/2013/07">2013年07月</a><span>(5)</span></li><li><a href="/xiajian2010/article/month/2012/12">2012年12月</a><span>(2)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/xiajian2010/article/details/17376453" title="JVM详解之Java垃圾回收机制详解和调优">JVM详解之Java垃圾回收机制详解和调优</a><span>(10353)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/9625131" title="Ubuntu中在tty终端显示和输入汉字">Ubuntu中在tty终端显示和输入汉字</a><span>(7033)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/23748557" title="Graphviz的使用及中文乱码问题">Graphviz的使用及中文乱码问题</a><span>(4545)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/17376157" title="java jvm 参数 -Xms -Xmx -Xmn -Xss 调优总结">java jvm 参数 -Xms -Xmx -Xmn -Xss 调优总结</a><span>(4280)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/22983825" title="关于Sonar">关于Sonar</a><span>(3635)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/9446465" title="bochs &amp; nasm的安装">bochs &amp; nasm的安装</a><span>(3314)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/24836863" title="关于MediaWiki">关于MediaWiki</a><span>(2849)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/23185655" title="Ubuntu下的绘图软件">Ubuntu下的绘图软件</a><span>(2638)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/10219589" title="在ubuntu的chrome中启用java plugin">在ubuntu的chrome中启用java plugin</a><span>(2573)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/25977827" title="关于Ubuntu下的PDF阅读器">关于Ubuntu下的PDF阅读器</a><span>(2562)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/xiajian2010/article/details/9446465" title="bochs &amp; nasm的安装">bochs &amp; nasm的安装</a><span>(15)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/19996587" title="Ubuntu下安装Monitorix">Ubuntu下安装Monitorix</a><span>(4)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/31357349" title="关于Nautilus">关于Nautilus</a><span>(2)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/9703959" title="软件测试实验学习笔记系列3--单元测试">软件测试实验学习笔记系列3--单元测试</a><span>(1)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/38039885" title="[水]关于web地图">[水]关于web地图</a><span>(1)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/9625131" title="Ubuntu中在tty终端显示和输入汉字">Ubuntu中在tty终端显示和输入汉字</a><span>(1)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/9750731" title="常用控制台命令大全-Ubuntu篇">常用控制台命令大全-Ubuntu篇</a><span>(1)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/25738341" title="关于CGI的一些认识">关于CGI的一些认识</a><span>(1)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/38553909" title="关于Jekyll">关于Jekyll</a><span>(0)</span>
+</li>
+<li>
+<a href="/xiajian2010/article/details/9428607" title="数据恢复">数据恢复</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/sahadev_/article/details/51654668" target="_blank">*Android官方开发文档Training系列课程中文版：网络操作之XML解析</a></li>
+<li><a href="http://blog.csdn.net/u012260293/article/details/50395602" 
+target="_blank">*Delta - 轻量级JavaWeb框架使用文档</a></li>
+<li><a href="http://blog.csdn.net/hiyun9/article/details/51602428" 
+target="_blank">*Nginx正反向代理、负载均衡等功能实现配置</a></li>
+<li><a href="http://blog.csdn.net/qianweifeng123/article/details/51555998" target="_blank">* 浅析ZeroMQ工作原理及其特点</a></li>
+<li><a 
+
+href="http://blog.csdn.net/qq_23547831/article/details/51289456"target="_blank">*android源码解析（十九）-->Dialog加载绘制流程</a></li>
+<li><a href="http://blog.csdn.net/mickjoust/article/details/51646658" 
+target="_blank">*Spring Boot 实践折腾记（三）：三板斧，Spring Boot下使用Mybatis</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/xiajian2010/article/details/25738341#comments">关于CGI的一些认识</a>
+    <p style="margin:0px;"><a href="/u011502132" class="user_name">u011502132</a>:
+不错
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/9446465#comments">bochs &amp; nasm的安装</a>
+    <p style="margin:0px;"><a href="/shuaike8888" class="user_name">shuaike8888</a>:
+@xiajian2010:加油，您真棒！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/9446465#comments">bochs &amp; nasm的安装</a>
+    <p style="margin:0px;"><a href="/xiajian2010" class="user_name">xiajian2010</a>:
+@shuaike8888:当时，结合那本《oragnes 》的书，然后一个个试的，编译失败后，就去查...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/9446465#comments">bochs &amp; nasm的安装</a>
+    <p style="margin:0px;"><a href="/shuaike8888" class="user_name">shuaike8888</a>:
+博主你好，请问你是怎么弄清楚安装bochs的依赖关系的呢？
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/31357349#comments">关于Nautilus</a>
+    <p style="margin:0px;"><a href="/xiajian2010" class="user_name">xiajian2010</a>:
+@tan362021334:我换地方了，新的博客的地址是http://xiajian.github....
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/31357349#comments">关于Nautilus</a>
+    <p style="margin:0px;"><a href="/tan362021334" class="user_name">tan362021334</a>:
+夏大神好久没更新博客了……
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/38039885#comments">[水]关于web地图</a>
+    <p style="margin:0px;"><a href="/Sunshiine10122" class="user_name">Sunshiine10122</a>:
+一个字   好
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/19996587#comments">Ubuntu下安装Monitorix</a>
+    <p style="margin:0px;"><a href="/xiajian2010" class="user_name">xiajian2010</a>:
+@u011246172:1.monitorix的配置文件在我的机器上就是这个路径（Ps：我使用的Ub...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/19996587#comments">Ubuntu下安装Monitorix</a>
+    <p style="margin:0px;"><a href="/u011246172" class="user_name">u011246172</a>:
+博主文章很详细，但是实际操作中发现编辑/etc/monitorix.conf文件应该为/etc/mo...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/xiajian2010/article/details/19996587#comments">bochs &amp; nasm的安装</a>
+    <p style="margin:0px;"><a href="/xiajian2010" class="user_name">xiajian2010</a>:
+@u011076569:不好意思，那本书我大概没时间在看了，分页那里我也没弄明白
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+ </div>   
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1249277"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+</body>
+</html>   
+ 
