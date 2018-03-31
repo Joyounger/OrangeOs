@@ -1,0 +1,181 @@
+4.1.2
+make
+bochs,c
+
+
+
+4.1.4
+make
+bochs
+b 0x7c00
+c
+n
+u /45
+b 0x7cb4
+c
+(ctrl+c)
+x /32xb es:di - 16
+x /13xcb es:di - 11
+sreg
+r
+
+输出:
+<bochs:1> b 0x7c00
+00000000000i[XGUI ] Mouse capture off
+<bochs:2> c
+00000000025i[MEM0 ] allocate_block: block=0x0 used 0x1 of 0x20
+00000004661i[BIOS ] $Revision: 11318 $ $Date: 2012-08-06 19:59:54 +0200 (Mo, 06. Aug 2012) $
+00000319066i[KBD  ] reset-disable command received
+00000321790i[BIOS ] Starting rombios32
+00000322232i[BIOS ] Shutdown flag 0
+00000322829i[BIOS ] ram_size=0x02000000
+00000323257i[BIOS ] ram_end=32MB
+00000363804i[BIOS ] Found 1 cpu(s)
+00000377985i[BIOS ] bios_table_addr: 0x000fa438 end=0x000fcc00
+00000705780i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00001033712i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
+00001033736i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
+00001033760i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
+00001033784i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
+00001033794i[P2I  ] write: ELCR2 = 0x0a
+00001034573i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
+00001042253i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001044532i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001046650i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001046879i[PIDE ] new BM-DMA address: 0xc000
+00001047499i[BIOS ] region 4: 0x0000c000
+00001049533i[BIOS ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001049763i[ACPI ] new irq line = 11
+00001049777i[ACPI ] new irq line = 9
+00001049804i[ACPI ] new PM base address: 0xb000
+00001049818i[ACPI ] new SM base address: 0xb100
+00001049846i[PCI  ] setting SMRAM control register to 0x4a
+00001213940i[CPU0 ] Enter to System Management Mode
+00001213940i[CPU0 ] enter_system_management_mode: temporary disable VMX while in SMM mode
+00001213950i[CPU0 ] RSM: Resuming from System Management Mode
+00001377971i[PCI  ] setting SMRAM control register to 0x0a
+00001392873i[BIOS ] MP table addr=0x000fa510 MPC table addr=0x000fa440 size=0xc8
+00001394688i[BIOS ] SMBIOS table addr=0x000fa520
+00001394739i[MEM0 ] allocate_block: block=0x1f used 0x2 of 0x20
+00001397667i[BIOS ] Firmware waking vector 0x1ff00cc
+00001402526i[BIOS ] ACPI tables: RSDP addr=0x000fa640 ACPI DATA addr=0x01ff0000 size=0x1f22
+00001402563i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00001403294i[BIOS ] bios_table_cur_addr: 0x000fa664
+00001530912i[VBIOS] VGABios $Id: vgabios.c,v 1.75 2011/10/15 14:07:21 vruppert Exp $
+00001530983i[BXVGA] VBE known Display Interface b0c0
+00001531015i[BXVGA] VBE known Display Interface b0c5
+00001533940i[VBIOS] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
+00001600002i[XGUI ] charmap update. Font Height is 16
+00014040958i[BIOS ] Booting from 0000:7c00
+(0) Breakpoint 1, 0x0000000000007c00 in ?? ()
+Next at t=14041013
+(0) [0x0000000000007c00] 0000:7c00 (unk. ctxt): jmp .+60 (0x00007c3e)     ; eb3c
+00014041013i[XGUI ] Mouse capture off
+<bochs:3> n
+Next at t=14041014
+(0) [0x0000000000007c3e] 0000:7c3e (unk. ctxt): mov ax, cs                ; 8cc8
+00014041014i[XGUI ] Mouse capture off
+<bochs:4> u /45
+00007c3e: (                    ): mov ax, cs                ; 8cc8
+00007c40: (                    ): mov ds, ax                ; 8ed8
+00007c42: (                    ): mov es, ax                ; 8ec0
+00007c44: (                    ): mov ss, ax                ; 8ed0
+00007c46: (                    ): mov sp, 0x7c00            ; bc007c
+00007c49: (                    ): xor ah, ah                ; 30e4
+00007c4b: (                    ): xor dl, dl                ; 30d2
+00007c4d: (                    ): int 0x13                  ; cd13
+00007c4f: (                    ): mov word ptr ds:0x7cb1, 0x0013 ; c706b17c1300
+00007c55: (                    ): cmp word ptr ds:0x7caf, 0x0000 ; 833eaf7c00
+00007c5a: (                    ): jz .+74                   ; 744a
+00007c5c: (                    ): dec word ptr ds:0x7caf    ; ff0eaf7c
+00007c60: (                    ): mov ax, 0x9000            ; b80090
+00007c63: (                    ): mov es, ax                ; 8ec0
+00007c65: (                    ): mov bx, 0x0100            ; bb0001
+00007c68: (                    ): mov ax, word ptr ds:0x7cb1 ; a1b17c
+00007c6b: (                    ): mov cl, 0x01              ; b101
+00007c6d: (                    ): call .+135                ; e88700
+00007c70: (                    ): mov si, 0x7cb4            ; beb47c
+00007c73: (                    ): mov di, 0x0100            ; bf0001
+00007c76: (                    ): cld                       ; fc
+00007c77: (                    ): mov dx, 0x0010            ; ba1000
+00007c7a: (                    ): cmp dx, 0x0000            ; 83fa00
+00007c7d: (                    ): jz .+32                   ; 7420
+00007c7f: (                    ): dec dx                    ; 4a
+00007c80: (                    ): mov cx, 0x000b            ; b90b00
+00007c83: (                    ): cmp cx, 0x0000            ; 83f900
+00007c86: (                    ): jz .+37                   ; 7425
+00007c88: (                    ): dec cx                    ; 49
+00007c89: (                    ): lodsb al, byte ptr ds:[si] ; ac
+00007c8a: (                    ): cmp al, byte ptr es:[di]  ; 263a05
+00007c8d: (                    ): jz .+2                    ; 7402
+00007c8f: (                    ): jmp .+3                   ; eb03
+00007c91: (                    ): inc di                    ; 47
+00007c92: (                    ): jmp .-17                  ; ebef
+00007c94: (                    ): and di, 0xffe0            ; 83e7e0
+00007c97: (                    ): add di, 0x0020            ; 83c720
+00007c9a: (                    ): mov si, 0x7cb4            ; beb47c
+00007c9d: (                    ): jmp .-37                  ; ebdb
+00007c9f: (                    ): add word ptr ds:0x7cb1, 0x0001 ; 8306b17c01
+00007ca4: (                    ): jmp .-81                  ; ebaf
+00007ca6: (                    ): mov dh, 0x02              ; b602
+00007ca8: (                    ): call .+48                 ; e83000
+00007cab: (                    ): jmp .-2                   ; ebfe
+00007cad: (                    ): jmp .-2                   ; ebfe
+00014041014i[XGUI ] Mouse capture off
+<bochs:5> b 0x7cb4
+00014041014i[XGUI ] Mouse capture off
+<bochs:6> c
+
+^C01050798280i[     ] Ctrl-C detected in signal handler.
+Next at t=1050798280
+(0) [0x0000000000007cad] 0000:7cad (unk. ctxt): jmp .-2 (0x00007cad)      ; ebfe
+01050798280i[XGUI ] Mouse capture off
+<bochs:7> 
+
+^C01108267238i[     ] Ctrl-C detected in signal handler.
+Next at t=1108267239
+(0) [0x0000000000007cad] 0000:7cad (unk. ctxt): jmp .-2 (0x00007cad)      ; ebfe
+01108267239i[XGUI ] Mouse capture off
+<bochs:8> x /32xb es:di - 16
+[bochs]:
+0x000000000009011b <bogus+       0>:	0x00	0xff	0xff	0xff	0xff	0x4c	0x4f	0x41
+0x0000000000090123 <bogus+       8>:	0x44	0x45	0x52	0x20	0x20	0x42	0x49	0x4e
+0x000000000009012b <bogus+      16>:	0x20	0x00	0x00	0xe5	0x14	0x8c	0x4a	0x77
+0x0000000000090133 <bogus+      24>:	0x3a	0x00	0x00	0xe5	0x14	0x8c	0x4a	0x03
+01108267239i[XGUI ] Mouse capture off
+<bochs:9> x /13xcb es:di - 11
+[bochs]:
+0x0000000000090120 <bogus+       0>:  L    O    A    D    E    R            
+0x0000000000090128 <bogus+       8>:  B    I    N        \0  
+01108267239i[XGUI ] Mouse capture off
+<bochs:10> sreg
+es:0x9000, dh=0x00009309, dl=0x0000ffff, valid=3
+	Data segment, base=0x00090000, limit=0x0000ffff, Read/Write, Accessed
+cs:0x0000, dh=0x00009300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0x0000ffff, Read/Write, Accessed
+ss:0x0000, dh=0x00009300, dl=0x0000ffff, valid=7
+	Data segment, base=0x00000000, limit=0x0000ffff, Read/Write, Accessed
+ds:0x0000, dh=0x00009300, dl=0x0000ffff, valid=3
+	Data segment, base=0x00000000, limit=0x0000ffff, Read/Write, Accessed
+fs:0x0000, dh=0x00009300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0x0000ffff, Read/Write, Accessed
+gs:0x0000, dh=0x00009300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0x0000ffff, Read/Write, Accessed
+ldtr:0x0000, dh=0x00008200, dl=0x0000ffff, valid=1
+tr:0x0000, dh=0x00008b00, dl=0x0000ffff, valid=1
+gdtr:base=0x00000000000fa1a7, limit=0x30
+idtr:base=0x0000000000000000, limit=0x3ff
+01108267239i[XGUI ] Mouse capture off
+<bochs:11> r
+rax: 0x00000000_0000004e rcx: 0x00000000_00090000
+rdx: 0x00000000_0000000e rbx: 0x00000000_00000100
+rsp: 0x00000000_00007c00 rbp: 0x00000000_00000000
+rsi: 0x00000000_000e7cbf rdi: 0x00000000_0000012b
+r8 : 0x00000000_00000000 r9 : 0x00000000_00000000
+r10: 0x00000000_00000000 r11: 0x00000000_00000000
+r12: 0x00000000_00000000 r13: 0x00000000_00000000
+r14: 0x00000000_00000000 r15: 0x00000000_00000000
+rip: 0x00000000_00007cad
+eflags 0x00000046: id vip vif ac vm rf nt IOPL=0 of df if tf sf ZF af PF cf
+01108267239i[XGUI ] Mouse capture off
+
