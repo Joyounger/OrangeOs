@@ -1,0 +1,79 @@
+1.到Ｂochs官方下载源码包，因为用到了调试功能。 Bochs 2.4.5下载地址 http://sourceforge.net/projects/bochs/
+
+2.安装G＋＋编译器
+
+ 
+
+sudo apt-get install g++
+ 
+
+如果不安装Ｇ＋＋编译器， 在执行configure时就会出现一些错误。
+
+ 
+
+ 
+
+ 
+
+ 3.执行配置，开启调试和反汇编
+
+./configure --enable-debugger --enable-disasm
+ 
+
+4.ERROR: X windows gui was selected, but X windows libraries were not found.
+
+出现这个错误时，请安装xorg-dev包
+
+ 
+
+sudo apt-get install xorg-dev
+ 
+
+5.Package gtk+-2.0 was not found in the pkg-config search path.Perhaps you should add the directory containing `gtk+-2.0.pc'to the PKG_CONFIG_PATH environment variableNo package 'gtk+-2.0' foundERROR: pkg-config was not found, or unable to access the gtk+-2.0 package.Install pkg-config and the gtk+ development package,or disable the gui debugger, or the wxWidgets display library (whichever is being used).
+
+ 
+
+出现这个错误时，请运行：
+
+ 
+
+sudo apt-get install libgtk2.0-dev
+ 
+
+6.重新执行配置（出错处理如上）
+
+ 
+
+ 
+
+./configure --enable-debugger --enable-disasm
+ 
+
+然后运行make
+
+ 
+
+ 
+
+make
+ 
+
+再install
+
+ 
+
+ 
+
+sudo make install
+ 
+
+我试过不用sudo来直接执行，会出错的，出错提示不明确，应该是权限不够
+
+ 
+
+ 
+
+make: *** [install_bin] 错误 1
+ 
+
+7.完成，执行bochs，嘻嘻，来个截图
